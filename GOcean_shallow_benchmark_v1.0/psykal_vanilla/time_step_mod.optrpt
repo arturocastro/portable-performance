@@ -1,0 +1,432 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: disabled (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+
+Begin optimization report for: time_step_mod._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (time_step_mod._) [1] time_step_mod.f90(1,8)
+
+===========================================================================
+
+Begin optimization report for: TIME_STEP_MOD::INVOKE_TIME_STEP
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIME_STEP_MOD::INVOKE_TIME_STEP) [2] time_step_mod.f90(9,14)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at time_step_mod.f90(41,8)
+   remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+
+   LOOP BEGIN at time_step_mod.f90(41,8)
+      remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+   LOOP END
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(48,5)
+   remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+
+   LOOP BEGIN at time_step_mod.f90(49,8)
+      remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+   LOOP END
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(56,5)
+   remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+
+   LOOP BEGIN at time_step_mod.f90(57,8)
+      remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+   LOOP END
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(64,5)
+   remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+
+   LOOP BEGIN at time_step_mod.f90(65,8)
+      remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+   LOOP END
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(81,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(81,5)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(81,5)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(81,5)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(83,5)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(83,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(83,5)
+<Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(83,5)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(83,5)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(83,5)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(87,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(87,5)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(87,5)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(87,5)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(89,5)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(89,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(89,5)
+<Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(89,5)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(89,5)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(89,5)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(92,5)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(92,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(92,5)
+<Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(92,5)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(92,5)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(92,5)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(94,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(94,5)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(94,5)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(94,5)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(98,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(98,5)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(98,5)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(98,5)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(100,5)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(100,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(100,5)
+<Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(100,5)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(100,5)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(100,5)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(106,5)
+   remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+
+   LOOP BEGIN at time_step_mod.f90(107,8)
+      remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+   LOOP END
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(115,5)
+   remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+
+   LOOP BEGIN at time_step_mod.f90(116,8)
+      remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+   LOOP END
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(123,5)
+   remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+
+   LOOP BEGIN at time_step_mod.f90(124,8)
+      remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+   LOOP END
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(139,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(139,5)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(139,5)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(139,5)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(141,5)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(141,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(141,5)
+<Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(141,5)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(141,5)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(141,5)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(145,5)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(145,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(145,5)
+<Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(145,5)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(145,5)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(145,5)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(147,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(147,5)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(147,5)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(147,5)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(151,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(151,5)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(151,5)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(151,5)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(153,5)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(153,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(153,5)
+<Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(153,5)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(153,5)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(153,5)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(159,5)
+   remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+
+   LOOP BEGIN at time_step_mod.f90(160,7)
+      remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+   LOOP END
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(166,5)
+   remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+
+   LOOP BEGIN at time_step_mod.f90(167,7)
+      remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+   LOOP END
+LOOP END
+
+LOOP BEGIN at time_step_mod.f90(173,5)
+   remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+
+   LOOP BEGIN at time_step_mod.f90(174,7)
+      remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+   LOOP END
+LOOP END
+===========================================================================

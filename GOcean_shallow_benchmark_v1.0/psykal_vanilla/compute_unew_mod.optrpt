@@ -1,0 +1,103 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: disabled (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+
+Begin optimization report for: compute_unew_mod._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (compute_unew_mod._) [1] compute_unew_mod.f90(1,8)
+
+===========================================================================
+
+Begin optimization report for: COMPUTE_UNEW_MOD::INVOKE_COMPUTE_UNEW
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (COMPUTE_UNEW_MOD::INVOKE_COMPUTE_UNEW) [2] compute_unew_mod.f90(33,14)
+  -> INLINE: (78,16) COMPUTE_UNEW_MOD::COMPUTE_UNEW_CODE
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at compute_unew_mod.f90(75,5)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+   LOOP BEGIN at compute_unew_mod.f90(76,8)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: COMPUTE_UNEW_MOD::INVOKE_COMPUTE_UNEW
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (COMPUTE_UNEW_MOD::INVOKE_COMPUTE_UNEW) [2] compute_unew_mod.f90(33,14)
+  -> INLINE: (78,16) COMPUTE_UNEW_MOD::COMPUTE_UNEW_CODE
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at compute_unew_mod.f90(75,5)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at compute_unew_mod.f90(76,8)
+      remark #25460: No loop optimizations reported
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: COMPUTE_UNEW_MOD::INVOKE_COMPUTE_UNEW
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (COMPUTE_UNEW_MOD::INVOKE_COMPUTE_UNEW) [2] compute_unew_mod.f90(33,14)
+  -> INLINE: (78,16) COMPUTE_UNEW_MOD::COMPUTE_UNEW_CODE
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at compute_unew_mod.f90(75,5)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at compute_unew_mod.f90(76,8)
+      remark #25460: No loop optimizations reported
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: COMPUTE_UNEW_MOD::COMPUTE_UNEW_CODE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (COMPUTE_UNEW_MOD::COMPUTE_UNEW_CODE) [3] compute_unew_mod.f90(87,14)
+
+===========================================================================
+
+Begin optimization report for: COMPUTE_UNEW_MOD::COMPUTE_UNEW_CODE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (COMPUTE_UNEW_MOD::COMPUTE_UNEW_CODE) [3] compute_unew_mod.f90(87,14)
+
+===========================================================================
+
+Begin optimization report for: COMPUTE_UNEW_MOD::COMPUTE_UNEW_CODE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (COMPUTE_UNEW_MOD::COMPUTE_UNEW_CODE) [3] compute_unew_mod.f90(87,14)
+
+===========================================================================

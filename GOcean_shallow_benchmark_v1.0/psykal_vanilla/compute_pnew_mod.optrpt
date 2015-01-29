@@ -1,0 +1,111 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: disabled (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+
+Begin optimization report for: compute_pnew_mod._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (compute_pnew_mod._) [1] compute_pnew_mod.f90(1,8)
+
+===========================================================================
+
+Begin optimization report for: COMPUTE_PNEW_MOD::INVOKE_COMPUTE_PNEW
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (COMPUTE_PNEW_MOD::INVOKE_COMPUTE_PNEW) [2] compute_pnew_mod.f90(32,14)
+  -> INLINE: (85,16) COMPUTE_PNEW_MOD::COMPUTE_PNEW_CODE
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at compute_pnew_mod.f90(82,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at compute_pnew_mod.f90(83,8)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at compute_pnew_mod.f90(83,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: COMPUTE_PNEW_MOD::INVOKE_COMPUTE_PNEW
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (COMPUTE_PNEW_MOD::INVOKE_COMPUTE_PNEW) [2] compute_pnew_mod.f90(32,14)
+  -> INLINE: (85,16) COMPUTE_PNEW_MOD::COMPUTE_PNEW_CODE
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at compute_pnew_mod.f90(82,5)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at compute_pnew_mod.f90(83,8)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at compute_pnew_mod.f90(83,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: COMPUTE_PNEW_MOD::INVOKE_COMPUTE_PNEW
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (COMPUTE_PNEW_MOD::INVOKE_COMPUTE_PNEW) [2] compute_pnew_mod.f90(32,14)
+  -> INLINE: (85,16) COMPUTE_PNEW_MOD::COMPUTE_PNEW_CODE
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at compute_pnew_mod.f90(82,5)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at compute_pnew_mod.f90(83,8)
+      remark #25460: No loop optimizations reported
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: COMPUTE_PNEW_MOD::COMPUTE_PNEW_CODE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (COMPUTE_PNEW_MOD::COMPUTE_PNEW_CODE) [3] compute_pnew_mod.f90(94,14)
+
+===========================================================================
+
+Begin optimization report for: COMPUTE_PNEW_MOD::COMPUTE_PNEW_CODE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (COMPUTE_PNEW_MOD::COMPUTE_PNEW_CODE) [3] compute_pnew_mod.f90(94,14)
+
+===========================================================================
+
+Begin optimization report for: COMPUTE_PNEW_MOD::COMPUTE_PNEW_CODE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (COMPUTE_PNEW_MOD::COMPUTE_PNEW_CODE) [3] compute_pnew_mod.f90(94,14)
+
+===========================================================================

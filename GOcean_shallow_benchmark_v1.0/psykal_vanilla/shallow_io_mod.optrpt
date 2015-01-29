@@ -1,0 +1,142 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: disabled (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+
+Begin optimization report for: shallow_io_mod._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (shallow_io_mod._) [1] shallow_io_mod.f90(1,8)
+
+===========================================================================
+
+Begin optimization report for: SHALLOW_IO_MOD::READ_NAMELIST
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW_IO_MOD::READ_NAMELIST) [2] shallow_io_mod.f90(26,14)
+  -> INLINE: (49,10) SHALLOW_IO_MOD::CHECK
+  -> INLINE: (51,10) SHALLOW_IO_MOD::CHECK
+  -> INLINE: (53,10) SHALLOW_IO_MOD::CHECK
+
+===========================================================================
+
+Begin optimization report for: SHALLOW_IO_MOD::PRINT_DIAGONALS
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW_IO_MOD::PRINT_DIAGONALS) [3] shallow_io_mod.f90(83,14)
+
+===========================================================================
+
+Begin optimization report for: SHALLOW_IO_MOD::MODEL_WRITE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW_IO_MOD::MODEL_WRITE) [4] shallow_io_mod.f90(118,14)
+  -> INLINE: (127,13) SHALLOW_IO_MOD::PRINT_DIAGONALS
+  -> INLINE: (137,13) SHALLOW_IO_MOD::MY_NCWRITE
+    -> INLINE: (286,12) SHALLOW_IO_MOD::CHECK_ERR
+    -> INLINE: (291,12) SHALLOW_IO_MOD::CHECK_ERR
+  -> INLINE: (138,13) SHALLOW_IO_MOD::MY_NCWRITE
+    -> INLINE: (286,12) SHALLOW_IO_MOD::CHECK_ERR
+    -> INLINE: (291,12) SHALLOW_IO_MOD::CHECK_ERR
+  -> INLINE: (139,13) SHALLOW_IO_MOD::MY_NCWRITE
+    -> INLINE: (286,12) SHALLOW_IO_MOD::CHECK_ERR
+    -> INLINE: (291,12) SHALLOW_IO_MOD::CHECK_ERR
+
+===========================================================================
+
+Begin optimization report for: SHALLOW_IO_MOD::MODEL_WRITE_LOG
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW_IO_MOD::MODEL_WRITE_LOG) [5] shallow_io_mod.f90(149,14)
+
+===========================================================================
+
+Begin optimization report for: SHALLOW_IO_MOD::MODEL_WRITE_FINALISE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW_IO_MOD::MODEL_WRITE_FINALISE) [6] shallow_io_mod.f90(161,14)
+  -> INLINE: (170,13) SHALLOW_IO_MOD::CHECK_ERR
+
+===========================================================================
+
+Begin optimization report for: SHALLOW_IO_MOD::NETCDF_SETUP
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW_IO_MOD::NETCDF_SETUP) [7] shallow_io_mod.f90(177,14)
+  -> INLINE: (213,10) SHALLOW_IO_MOD::CHECK_ERR
+  -> INLINE: (216,10) SHALLOW_IO_MOD::CHECK_ERR
+  -> INLINE: (218,10) SHALLOW_IO_MOD::CHECK_ERR
+  -> INLINE: (222,10) SHALLOW_IO_MOD::CHECK_ERR
+  -> INLINE: (226,10) SHALLOW_IO_MOD::CHECK_ERR
+  -> INLINE: (232,10) SHALLOW_IO_MOD::CHECK_ERR
+  -> INLINE: (237,10) SHALLOW_IO_MOD::CHECK_ERR
+  -> INLINE: (242,10) SHALLOW_IO_MOD::CHECK_ERR
+  -> INLINE: (254,10) SHALLOW_IO_MOD::CHECK_ERR
+
+===========================================================================
+
+Begin optimization report for: SHALLOW_IO_MOD::MY_NCWRITE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW_IO_MOD::MY_NCWRITE) [8] shallow_io_mod.f90(273,14)
+  -> INLINE: (286,12) SHALLOW_IO_MOD::CHECK_ERR
+  -> INLINE: (291,12) SHALLOW_IO_MOD::CHECK_ERR
+
+===========================================================================
+
+Begin optimization report for: SHALLOW_IO_MOD::CHECK
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW_IO_MOD::CHECK) [9] shallow_io_mod.f90(298,16)
+
+===========================================================================
+
+Begin optimization report for: SHALLOW_IO_MOD::CHECK_ERR
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW_IO_MOD::CHECK_ERR) [10] shallow_io_mod.f90(261,14)
+
+===========================================================================
+
+Begin optimization report for: SHALLOW_IO_MOD::MODEL_WRITE_INIT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW_IO_MOD::MODEL_WRITE_INIT) [11] shallow_io_mod.f90(105,14)
+  -> INLINE: (110,16) SHALLOW_IO_MOD::NETCDF_SETUP
+    -> INLINE: (213,10) SHALLOW_IO_MOD::CHECK_ERR
+    -> INLINE: (216,10) SHALLOW_IO_MOD::CHECK_ERR
+    -> INLINE: (218,10) SHALLOW_IO_MOD::CHECK_ERR
+    -> INLINE: (222,10) SHALLOW_IO_MOD::CHECK_ERR
+    -> INLINE: (226,10) SHALLOW_IO_MOD::CHECK_ERR
+    -> INLINE: (232,10) SHALLOW_IO_MOD::CHECK_ERR
+    -> INLINE: (237,10) SHALLOW_IO_MOD::CHECK_ERR
+    -> INLINE: (242,10) SHALLOW_IO_MOD::CHECK_ERR
+    -> INLINE: (254,10) SHALLOW_IO_MOD::CHECK_ERR
+
+===========================================================================
+
+Begin optimization report for: SHALLOW_IO_MOD::PRINT_INITIAL_VALUES
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW_IO_MOD::PRINT_INITIAL_VALUES) [12] shallow_io_mod.f90(62,14)
+
+===========================================================================

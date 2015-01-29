@@ -1,0 +1,484 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: disabled (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+
+Begin optimization report for: INITIAL_CONDITIONS_MOD::INIT_VELOCITY_V
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (INITIAL_CONDITIONS_MOD::INIT_VELOCITY_V) [1] initial_conditions_mod.f90(132,14)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at initial_conditions_mod.f90(142,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+      remark #15399: vectorization support: unroll factor set to 4
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at initial_conditions_mod.f90(142,5)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+      remark #15399: vectorization support: unroll factor set to 4
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: INITIAL_CONDITIONS_MOD::INIT_VELOCITY_V
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (INITIAL_CONDITIONS_MOD::INIT_VELOCITY_V) [1] initial_conditions_mod.f90(132,14)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at initial_conditions_mod.f90(142,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+      remark #15399: vectorization support: unroll factor set to 4
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at initial_conditions_mod.f90(142,5)
+<Multiversioned v2>
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+      remark #15399: vectorization support: unroll factor set to 4
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: INITIAL_CONDITIONS_MOD::INIT_VELOCITY_V
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (INITIAL_CONDITIONS_MOD::INIT_VELOCITY_V) [1] initial_conditions_mod.f90(132,14)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at initial_conditions_mod.f90(142,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+      remark #15399: vectorization support: unroll factor set to 4
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at initial_conditions_mod.f90(142,5)
+<Multiversioned v2>
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+      remark #15399: vectorization support: unroll factor set to 4
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(143,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: INITIAL_CONDITIONS_MOD::INIT_VELOCITY_U
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (INITIAL_CONDITIONS_MOD::INIT_VELOCITY_U) [2] initial_conditions_mod.f90(113,14)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at initial_conditions_mod.f90(123,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+      remark #15399: vectorization support: unroll factor set to 4
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at initial_conditions_mod.f90(123,5)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+      remark #15399: vectorization support: unroll factor set to 4
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: INITIAL_CONDITIONS_MOD::INIT_VELOCITY_U
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (INITIAL_CONDITIONS_MOD::INIT_VELOCITY_U) [2] initial_conditions_mod.f90(113,14)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at initial_conditions_mod.f90(123,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+      remark #15399: vectorization support: unroll factor set to 4
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at initial_conditions_mod.f90(123,5)
+<Multiversioned v2>
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+      remark #15399: vectorization support: unroll factor set to 4
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: INITIAL_CONDITIONS_MOD::INIT_VELOCITY_U
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (INITIAL_CONDITIONS_MOD::INIT_VELOCITY_U) [2] initial_conditions_mod.f90(113,14)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at initial_conditions_mod.f90(123,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+      remark #15399: vectorization support: unroll factor set to 4
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at initial_conditions_mod.f90(123,5)
+<Multiversioned v2>
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+      remark #15399: vectorization support: unroll factor set to 4
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(124,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: INITIAL_CONDITIONS_MOD::INIT_PRESSURE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (INITIAL_CONDITIONS_MOD::INIT_PRESSURE) [3] initial_conditions_mod.f90(79,14)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at initial_conditions_mod.f90(102,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at initial_conditions_mod.f90(103,8)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(103,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: INITIAL_CONDITIONS_MOD::INIT_PRESSURE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (INITIAL_CONDITIONS_MOD::INIT_PRESSURE) [3] initial_conditions_mod.f90(79,14)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at initial_conditions_mod.f90(102,5)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at initial_conditions_mod.f90(103,8)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(103,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: INITIAL_CONDITIONS_MOD::INIT_PRESSURE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (INITIAL_CONDITIONS_MOD::INIT_PRESSURE) [3] initial_conditions_mod.f90(79,14)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at initial_conditions_mod.f90(102,5)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at initial_conditions_mod.f90(103,8)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(103,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: INITIAL_CONDITIONS_MOD::INVOKE_INIT_STREAM_FN_KERNEL
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (INITIAL_CONDITIONS_MOD::INVOKE_INIT_STREAM_FN_KERNEL) [4] initial_conditions_mod.f90(40,14)
+  -> INLINE: (54,14) INITIAL_CONDITIONS_MOD::INVOKE_INIT_STREAM_FN_KERNEL:INIT_STREAM_FN_CODE
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at initial_conditions_mod.f90(51,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at initial_conditions_mod.f90(52,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(52,7)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: INITIAL_CONDITIONS_MOD::INVOKE_INIT_STREAM_FN_KERNEL
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (INITIAL_CONDITIONS_MOD::INVOKE_INIT_STREAM_FN_KERNEL) [4] initial_conditions_mod.f90(40,14)
+  -> INLINE: (54,14) INITIAL_CONDITIONS_MOD::INVOKE_INIT_STREAM_FN_KERNEL:INIT_STREAM_FN_CODE
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at initial_conditions_mod.f90(51,5)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at initial_conditions_mod.f90(52,7)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(52,7)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: INITIAL_CONDITIONS_MOD::INVOKE_INIT_STREAM_FN_KERNEL
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (INITIAL_CONDITIONS_MOD::INVOKE_INIT_STREAM_FN_KERNEL) [4] initial_conditions_mod.f90(40,14)
+  -> INLINE: (54,14) INITIAL_CONDITIONS_MOD::INVOKE_INIT_STREAM_FN_KERNEL:INIT_STREAM_FN_CODE
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at initial_conditions_mod.f90(51,5)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at initial_conditions_mod.f90(52,7)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at initial_conditions_mod.f90(52,7)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: INITIAL_CONDITIONS_MOD::INVOKE_INIT_STREAM_FN_KERNEL:INIT_STREAM_FN_CODE
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (INITIAL_CONDITIONS_MOD::INVOKE_INIT_STREAM_FN_KERNEL:INIT_STREAM_FN_CODE) initial_conditions_mod.f90(61,16)
+
+===========================================================================
+
+Begin optimization report for: INITIAL_CONDITIONS_MOD::INIT_INITIAL_CONDITION_PARAMS
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (INITIAL_CONDITIONS_MOD::INIT_INITIAL_CONDITION_PARAMS) [6] initial_conditions_mod.f90(28,14)
+
+===========================================================================
+
+Begin optimization report for: initial_conditions_mod._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (initial_conditions_mod._) [7] initial_conditions_mod.f90(1,8)
+
+===========================================================================

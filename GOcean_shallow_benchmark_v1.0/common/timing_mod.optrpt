@@ -1,0 +1,266 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: disabled (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+
+Begin optimization report for: timing_mod._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (timing_mod._) [1] timing_mod.f90(1,8)
+
+===========================================================================
+
+Begin optimization report for: TIMING_MOD::TIME_IN_S
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIMING_MOD::TIME_IN_S) [2] timing_mod.f90(123,22)
+
+===========================================================================
+
+Begin optimization report for: TIMING_MOD::TIMER_START
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIMING_MOD::TIMER_START) [3] timing_mod.f90(142,15)
+  -> DELETED: (202,38) GETTICKS
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at timing_mod.f90(164,7)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+===========================================================================
+
+Begin optimization report for: TIMING_MOD::TIMER_REPORT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIMING_MOD::TIMER_REPORT) [4] timing_mod.f90(249,15)
+  -> INLINE: (265,15) TIMING_MOD::TIMER_REPORT_WITH_REPEATS
+    -> DELETED: (322,10) for_write_seq_fmt
+    -> INLINE: (341,24) TIMING_MOD::TIME_IN_S
+  -> INLINE: (267,15) TIMING_MOD::TIMER_REPORT_NO_REPEATS
+    -> DELETED: (281,10) for_write_seq_fmt
+    -> INLINE: (300,24) TIMING_MOD::TIME_IN_S
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at timing_mod.f90(257,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at timing_mod.f90(258,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at timing_mod.f90(258,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at timing_mod.f90(329,7) inlined into timing_mod.f90(265,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 331 and  line 345
+
+   LOOP BEGIN at timing_mod.f90(336,10) inlined into timing_mod.f90(265,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 341 and  line 345
+   LOOP END
+LOOP END
+
+LOOP BEGIN at timing_mod.f90(288,7) inlined into timing_mod.f90(267,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 290 and  line 304
+
+   LOOP BEGIN at timing_mod.f90(295,10) inlined into timing_mod.f90(267,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 300 and  line 304
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TIMING_MOD::TIMER_REPORT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIMING_MOD::TIMER_REPORT) [4] timing_mod.f90(249,15)
+  -> INLINE: (265,15) TIMING_MOD::TIMER_REPORT_WITH_REPEATS
+    -> DELETED: (322,10) for_write_seq_fmt
+    -> INLINE: (341,24) TIMING_MOD::TIME_IN_S
+  -> INLINE: (267,15) TIMING_MOD::TIMER_REPORT_NO_REPEATS
+    -> DELETED: (281,10) for_write_seq_fmt
+    -> INLINE: (300,24) TIMING_MOD::TIME_IN_S
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at timing_mod.f90(257,7)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at timing_mod.f90(258,14)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at timing_mod.f90(258,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at timing_mod.f90(329,7) inlined into timing_mod.f90(265,15)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at timing_mod.f90(336,10) inlined into timing_mod.f90(265,15)
+      remark #25460: No loop optimizations reported
+   LOOP END
+LOOP END
+
+LOOP BEGIN at timing_mod.f90(288,7) inlined into timing_mod.f90(267,15)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at timing_mod.f90(295,10) inlined into timing_mod.f90(267,15)
+      remark #25460: No loop optimizations reported
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TIMING_MOD::TIMER_REPORT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIMING_MOD::TIMER_REPORT) [4] timing_mod.f90(249,15)
+  -> INLINE: (265,15) TIMING_MOD::TIMER_REPORT_WITH_REPEATS
+    -> DELETED: (322,10) for_write_seq_fmt
+    -> INLINE: (341,24) TIMING_MOD::TIME_IN_S
+  -> INLINE: (267,15) TIMING_MOD::TIMER_REPORT_NO_REPEATS
+    -> DELETED: (281,10) for_write_seq_fmt
+    -> INLINE: (300,24) TIMING_MOD::TIME_IN_S
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at timing_mod.f90(257,7)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at timing_mod.f90(258,14)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at timing_mod.f90(258,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at timing_mod.f90(329,7) inlined into timing_mod.f90(265,15)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at timing_mod.f90(336,10) inlined into timing_mod.f90(265,15)
+      remark #25460: No loop optimizations reported
+   LOOP END
+LOOP END
+
+LOOP BEGIN at timing_mod.f90(288,7) inlined into timing_mod.f90(267,15)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at timing_mod.f90(295,10) inlined into timing_mod.f90(267,15)
+      remark #25460: No loop optimizations reported
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TIMING_MOD::TIMER_REPORT_NO_REPEATS
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIMING_MOD::TIMER_REPORT_NO_REPEATS) [5] timing_mod.f90(274,16)
+  -> DELETED: (281,10) for_write_seq_fmt
+  -> INLINE: (300,24) TIMING_MOD::TIME_IN_S
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at timing_mod.f90(288,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 290 and  line 304
+
+   LOOP BEGIN at timing_mod.f90(295,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 300 and  line 304
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TIMING_MOD::TIMER_REPORT_WITH_REPEATS
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIMING_MOD::TIMER_REPORT_WITH_REPEATS) [6] timing_mod.f90(315,15)
+  -> DELETED: (322,10) for_write_seq_fmt
+  -> INLINE: (341,24) TIMING_MOD::TIME_IN_S
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at timing_mod.f90(329,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 331 and  line 345
+
+   LOOP BEGIN at timing_mod.f90(336,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 341 and  line 345
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TIMING_MOD::TIMER_STOP
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIMING_MOD::TIMER_STOP) [7] timing_mod.f90(212,15)
+  -> DELETED: (221,19) GETTICKS
+
+===========================================================================
+
+Begin optimization report for: TIMING_MOD::TIMER_INIT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIMING_MOD::TIMER_INIT) [8] timing_mod.f90(67,15)
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at timing_mod.f90(75,7)
+   remark #16205: OpenMP multithreaded code generation for MASTER was successful
+OpenMP Construct at timing_mod.f90(78,7)
+   remark #16207: OpenMP multithreaded code generation for BARRIER was successful
+OpenMP Construct at timing_mod.f90(106,7)
+   remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at timing_mod.f90(108,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 111 and  line 111
+
+   LOOP BEGIN at timing_mod.f90(109,10)
+      remark #15527: loop was not vectorized: function call to for_cpystr cannot be vectorized   [ timing_mod.f90(111,13) ]
+   LOOP END
+LOOP END
+===========================================================================

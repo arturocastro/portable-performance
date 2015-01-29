@@ -1,0 +1,222 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: disabled (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+
+Begin optimization report for: field_mod._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (field_mod._) [1] field_mod.f90(1,8)
+
+===========================================================================
+
+Begin optimization report for: FIELD_MOD::COPY_SCALAR_FIELD
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (FIELD_MOD::COPY_SCALAR_FIELD) [2] field_mod.f90(121,14)
+
+
+    Report from: Code generation optimizations [cg]
+
+remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (32, 0), and destination (alignment, offset): (1, 0)
+===========================================================================
+
+Begin optimization report for: FIELD_MOD::COPY_2DFIELD
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (FIELD_MOD::COPY_2DFIELD) [3] field_mod.f90(132,14)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at field_mod.f90(137,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at field_mod.f90(137,5)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at field_mod.f90(137,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at field_mod.f90(137,5)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at field_mod.f90(137,5)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at field_mod.f90(137,5)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at field_mod.f90(137,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at field_mod.f90(137,5)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: FIELD_MOD::COPY_2DFIELD_PATCH
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (FIELD_MOD::COPY_2DFIELD_PATCH) [4] field_mod.f90(143,14)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at field_mod.f90(148,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at field_mod.f90(148,5)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at field_mod.f90(148,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at field_mod.f90(148,5)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at field_mod.f90(148,5)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at field_mod.f90(148,5)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at field_mod.f90(148,5)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at field_mod.f90(148,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at field_mod.f90(148,5)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at field_mod.f90(148,5)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at field_mod.f90(148,5)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at field_mod.f90(148,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at field_mod.f90(148,5)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at field_mod.f90(148,5)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at field_mod.f90(148,5)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at field_mod.f90(148,5)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at field_mod.f90(148,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at field_mod.f90(148,5)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: FIELD_MOD::INCREMENT_SCALAR_FIELD
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (FIELD_MOD::INCREMENT_SCALAR_FIELD) [5] field_mod.f90(155,14)
+
+===========================================================================
+
+Begin optimization report for: FIELD_MOD::SET_SCALAR_FIELD
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (FIELD_MOD::SET_SCALAR_FIELD) [6] field_mod.f90(166,14)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at field_mod.f90(171,17)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at field_mod.f90(175,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at field_mod.f90(175,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at field_mod.f90(175,8)
+      remark #15399: vectorization support: unroll factor set to 4
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at field_mod.f90(175,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: FIELD_MOD::UPDATE_EXTERNAL_REGIONS
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (FIELD_MOD::UPDATE_EXTERNAL_REGIONS) [7] field_mod.f90(192,14)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at field_mod.f90(198,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 199 and  line 199
+LOOP END
+===========================================================================

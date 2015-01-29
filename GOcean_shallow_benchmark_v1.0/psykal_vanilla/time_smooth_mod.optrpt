@@ -1,0 +1,170 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: disabled (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+
+Begin optimization report for: time_smooth_mod._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (time_smooth_mod._) [1] time_smooth_mod.f90(1,8)
+
+===========================================================================
+
+Begin optimization report for: TIME_SMOOTH_MOD::INVOKE_TIME_SMOOTH
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIME_SMOOTH_MOD::INVOKE_TIME_SMOOTH) [2] time_smooth_mod.f90(51,14)
+  -> INLINE: (67,14) TIME_SMOOTH_MOD::TIME_SMOOTH_CODE
+  -> INLINE: (74,15) TIME_SMOOTH_MOD::TIME_SMOOTH_CODE
+  -> INLINE: (81,15) TIME_SMOOTH_MOD::TIME_SMOOTH_CODE
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at time_smooth_mod.f90(65,5)
+   remark #25045: Fused Loops: ( 65 72 79 )
+
+   remark #15317: loop was not vectorized: subscript too complex   [ time_smooth_mod.f90(97,5) ]
+
+   LOOP BEGIN at time_smooth_mod.f90(66,7)
+      remark #25045: Fused Loops: ( 66 73 80 )
+
+      remark #25427: Loop Statements Reordered
+      remark #15317: loop was not vectorized: subscript too complex   [ time_smooth_mod.f90(97,5) ]
+   LOOP END
+
+   LOOP BEGIN at time_smooth_mod.f90(73,7)
+      remark #25046: Loop lost in Fusion 
+   LOOP END
+
+   LOOP BEGIN at time_smooth_mod.f90(80,7)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at time_smooth_mod.f90(72,5)
+   remark #25046: Loop lost in Fusion 
+LOOP END
+
+LOOP BEGIN at time_smooth_mod.f90(79,5)
+LOOP END
+===========================================================================
+
+Begin optimization report for: TIME_SMOOTH_MOD::INVOKE_TIME_SMOOTH
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIME_SMOOTH_MOD::INVOKE_TIME_SMOOTH) [2] time_smooth_mod.f90(51,14)
+  -> INLINE: (67,14) TIME_SMOOTH_MOD::TIME_SMOOTH_CODE
+  -> INLINE: (74,15) TIME_SMOOTH_MOD::TIME_SMOOTH_CODE
+  -> INLINE: (81,15) TIME_SMOOTH_MOD::TIME_SMOOTH_CODE
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at time_smooth_mod.f90(65,5)
+   remark #25045: Fused Loops: ( 65 72 79 )
+
+
+   LOOP BEGIN at time_smooth_mod.f90(66,7)
+      remark #25045: Fused Loops: ( 66 73 80 )
+
+      remark #25427: Loop Statements Reordered
+   LOOP END
+
+   LOOP BEGIN at time_smooth_mod.f90(73,7)
+      remark #25046: Loop lost in Fusion 
+   LOOP END
+
+   LOOP BEGIN at time_smooth_mod.f90(80,7)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at time_smooth_mod.f90(72,5)
+   remark #25046: Loop lost in Fusion 
+LOOP END
+
+LOOP BEGIN at time_smooth_mod.f90(79,5)
+LOOP END
+===========================================================================
+
+Begin optimization report for: TIME_SMOOTH_MOD::INVOKE_TIME_SMOOTH
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIME_SMOOTH_MOD::INVOKE_TIME_SMOOTH) [2] time_smooth_mod.f90(51,14)
+  -> INLINE: (67,14) TIME_SMOOTH_MOD::TIME_SMOOTH_CODE
+  -> INLINE: (74,15) TIME_SMOOTH_MOD::TIME_SMOOTH_CODE
+  -> INLINE: (81,15) TIME_SMOOTH_MOD::TIME_SMOOTH_CODE
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at time_smooth_mod.f90(65,5)
+   remark #25045: Fused Loops: ( 65 72 79 )
+
+
+   LOOP BEGIN at time_smooth_mod.f90(66,7)
+      remark #25045: Fused Loops: ( 66 73 80 )
+
+      remark #25427: Loop Statements Reordered
+   LOOP END
+
+   LOOP BEGIN at time_smooth_mod.f90(73,7)
+      remark #25046: Loop lost in Fusion 
+   LOOP END
+
+   LOOP BEGIN at time_smooth_mod.f90(80,7)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at time_smooth_mod.f90(72,5)
+   remark #25046: Loop lost in Fusion 
+LOOP END
+
+LOOP BEGIN at time_smooth_mod.f90(79,5)
+LOOP END
+===========================================================================
+
+Begin optimization report for: TIME_SMOOTH_MOD::TIME_SMOOTH_CODE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIME_SMOOTH_MOD::TIME_SMOOTH_CODE) [3] time_smooth_mod.f90(90,14)
+
+===========================================================================
+
+Begin optimization report for: TIME_SMOOTH_MOD::TIME_SMOOTH_CODE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIME_SMOOTH_MOD::TIME_SMOOTH_CODE) [3] time_smooth_mod.f90(90,14)
+
+===========================================================================
+
+Begin optimization report for: TIME_SMOOTH_MOD::TIME_SMOOTH_CODE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIME_SMOOTH_MOD::TIME_SMOOTH_CODE) [3] time_smooth_mod.f90(90,14)
+
+===========================================================================
+
+Begin optimization report for: TIME_SMOOTH_MOD::TIME_SMOOTH_INIT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIME_SMOOTH_MOD::TIME_SMOOTH_INIT) [4] time_smooth_mod.f90(39,14)
+
+===========================================================================

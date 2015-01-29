@@ -1,0 +1,27 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: disabled (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+
+Begin optimization report for: topology_mod._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (topology_mod._) [1] topology_mod.f90(5,8)
+
+===========================================================================
+
+Begin optimization report for: TOPOLOGY_MOD::TOPOLOGY_INIT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TOPOLOGY_MOD::TOPOLOGY_INIT) [2] topology_mod.f90(46,14)
+
+===========================================================================

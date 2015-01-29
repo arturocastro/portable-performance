@@ -1,0 +1,52 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: disabled (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+
+Begin optimization report for: compute_cu_mod._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (compute_cu_mod._) [1] compute_cu_mod.f90(4,8)
+
+===========================================================================
+
+Begin optimization report for: COMPUTE_CU_MOD::INVOKE_COMPUTE_CU
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (COMPUTE_CU_MOD::INVOKE_COMPUTE_CU) [2] compute_cu_mod.f90(34,14)
+  -> INLINE: (86,16) COMPUTE_CU_MOD::COMPUTE_CU_CODE
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at compute_cu_mod.f90(83,5)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+   LOOP BEGIN at compute_cu_mod.f90(84,8)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      remark #25439: unrolled with remainder by 2  
+   LOOP END
+
+   LOOP BEGIN at compute_cu_mod.f90(84,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: COMPUTE_CU_MOD::COMPUTE_CU_CODE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (COMPUTE_CU_MOD::COMPUTE_CU_CODE) [3] compute_cu_mod.f90(95,14)
+
+===========================================================================

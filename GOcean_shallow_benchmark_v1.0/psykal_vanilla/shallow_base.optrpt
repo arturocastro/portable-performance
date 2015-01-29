@@ -1,0 +1,259 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: disabled (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+
+Begin optimization report for: SHALLOW
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW) [1] shallow_base.f90(1,9)
+  -> INLINE: (161,8) SHALLOW:COMPUTE_CHECKSUM
+  -> INLINE: (165,8) SHALLOW:COMPUTE_CHECKSUM
+  -> INLINE: (169,8) SHALLOW:COMPUTE_CHECKSUM
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at shallow_base.f90(130,3)
+   remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(161,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(161,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(161,8)
+      remark #15399: vectorization support: unroll factor set to 8
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(161,8)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(161,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(165,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(165,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(165,8)
+      remark #15399: vectorization support: unroll factor set to 8
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(165,8)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(165,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(169,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(169,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(169,8)
+      remark #15399: vectorization support: unroll factor set to 8
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(169,8)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(169,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SHALLOW
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW) [1] shallow_base.f90(1,9)
+  -> INLINE: (161,8) SHALLOW:COMPUTE_CHECKSUM
+  -> INLINE: (165,8) SHALLOW:COMPUTE_CHECKSUM
+  -> INLINE: (169,8) SHALLOW:COMPUTE_CHECKSUM
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at shallow_base.f90(130,3)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(161,8)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(161,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(161,8)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(161,8)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(161,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(165,8)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(165,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(165,8)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(165,8)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(165,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(169,8)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(169,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(169,8)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(169,8)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(169,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SHALLOW
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW) [1] shallow_base.f90(1,9)
+  -> INLINE: (161,8) SHALLOW:COMPUTE_CHECKSUM
+  -> INLINE: (165,8) SHALLOW:COMPUTE_CHECKSUM
+  -> INLINE: (169,8) SHALLOW:COMPUTE_CHECKSUM
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at shallow_base.f90(130,3)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(161,8)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(161,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(161,8)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(161,8)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(161,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(165,8)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(165,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(165,8)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(165,8)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(165,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(169,8)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(169,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(169,8)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(169,8)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(184,11) inlined into shallow_base.f90(169,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SHALLOW:COMPUTE_CHECKSUM
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (SHALLOW:COMPUTE_CHECKSUM) shallow_base.f90(179,14)
+
+===========================================================================

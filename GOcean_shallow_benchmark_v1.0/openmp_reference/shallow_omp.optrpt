@@ -1,0 +1,2744 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: disabled (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+
+Begin optimization report for: SHALLOW
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW) [1] shallow_omp.f90(1,9)
+  -> INLINE: (85,8) CHECK
+  -> INLINE: (87,8) CHECK
+  -> INLINE: (89,8) CHECK
+  -> INLINE: (108,11) NETCDF_SETUP
+    -> INLINE: (539,12) CHECK_ERR
+    -> INLINE: (542,12) CHECK_ERR
+    -> INLINE: (544,12) CHECK_ERR
+    -> INLINE: (548,12) CHECK_ERR
+    -> INLINE: (552,12) CHECK_ERR
+    -> INLINE: (558,12) CHECK_ERR
+    -> INLINE: (563,12) CHECK_ERR
+    -> INLINE: (568,12) CHECK_ERR
+    -> INLINE: (580,12) CHECK_ERR
+  -> INLINE: (195,11) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (196,11) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (197,11) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (438,14) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (439,14) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (440,14) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (464,11) CHECK_ERR
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at shallow_omp.f90(258,7)
+   remark #16207: OpenMP multithreaded code generation for BARRIER was successful
+OpenMP Construct at shallow_omp.f90(285,7)
+   remark #16207: OpenMP multithreaded code generation for BARRIER was successful
+OpenMP Construct at shallow_omp.f90(322,7)
+   remark #16207: OpenMP multithreaded code generation for BARRIER was successful
+OpenMP Construct at shallow_omp.f90(400,7)
+   remark #16207: OpenMP multithreaded code generation for BARRIER was successful
+OpenMP Construct at shallow_omp.f90(131,7)
+   remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at shallow_omp.f90(143,7)
+   remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at shallow_omp.f90(165,7)
+   remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at shallow_omp.f90(262,7)
+   remark #16204: OpenMP multithreaded code generation for SINGLE was successful
+OpenMP Construct at shallow_omp.f90(326,7)
+   remark #16204: OpenMP multithreaded code generation for SINGLE was successful
+OpenMP Construct at shallow_omp.f90(347,7)
+   remark #16204: OpenMP multithreaded code generation for SINGLE was successful
+OpenMP Construct at shallow_omp.f90(208,7)
+   remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at shallow_omp.f90(154,3)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   remark #25439: unrolled with remainder by 2  
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(154,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(158,3)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(158,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(158,3)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(158,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(195,46)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_omp.f90(195,46)
+      remark #25401: memcopy(with guard) generated
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(195,46)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_omp.f90(195,46)
+      remark #25401: memcopy(with guard) generated
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(196,46)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_omp.f90(196,46)
+      remark #25401: memcopy(with guard) generated
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(196,46)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_omp.f90(196,46)
+      remark #25401: memcopy(with guard) generated
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(197,46)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_omp.f90(197,46)
+      remark #25401: memcopy(with guard) generated
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(197,46)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_omp.f90(197,46)
+      remark #25401: memcopy(with guard) generated
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(452,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_omp.f90(452,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(452,15)
+      remark #15399: vectorization support: unroll factor set to 8
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(452,15)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(452,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(454,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_omp.f90(454,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(454,14)
+      remark #15399: vectorization support: unroll factor set to 8
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(454,14)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(454,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(456,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_omp.f90(456,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(456,14)
+      remark #15399: vectorization support: unroll factor set to 8
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(456,14)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(456,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(133,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_omp.f90(134,6)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(134,6)
+      remark #25427: Loop Statements Reordered
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(134,6)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(145,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_omp.f90(146,6)
+   <Peeled>
+      remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(146,6)
+      remark #15399: vectorization support: unroll factor set to 4
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(146,6)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(146,6)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(167,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_omp.f90(168,6)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(168,6)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(168,6)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(220,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_omp.f90(226,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(227,6)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(228,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(228,9)
+            remark #15399: vectorization support: unroll factor set to 4
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(228,9)
+         <Remainder>
+            remark #15301: REMAINDER LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(228,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(233,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(234,6)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(235,9)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(235,9)
+            remark #15399: vectorization support: unroll factor set to 4
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(235,9)
+         <Remainder>
+            remark #15301: REMAINDER LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(235,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(240,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(241,6)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(242,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(242,9)
+            remark #15399: vectorization support: unroll factor set to 4
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(242,9)
+         <Remainder>
+            remark #15301: REMAINDER LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(242,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(248,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(249,6)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(250,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 5
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(250,9)
+            remark #15399: vectorization support: unroll factor set to 4
+            remark #15300: LOOP WAS VECTORIZED
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 8
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(250,9)
+         <Remainder>
+            remark #15301: REMAINDER LOOP WAS VECTORIZED
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(250,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(263,6)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(263,6)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(275,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(276,6)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(276,6)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(276,6)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(294,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(295,6)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(296,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(296,9)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(296,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(303,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(304,6)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(305,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(305,9)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(305,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(312,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(313,6)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(314,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(314,9)
+            remark #15399: vectorization support: unroll factor set to 4
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(314,9)
+         <Remainder>
+            remark #15301: REMAINDER LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(314,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(327,6)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(327,6)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(337,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(338,6)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(338,6)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(338,6)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(356,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(357,9)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(358,12)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(358,12)
+            remark #15399: vectorization support: unroll factor set to 4
+            remark #15300: LOOP WAS VECTORIZED
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(358,12)
+         <Remainder>
+            remark #15301: REMAINDER LOOP WAS VECTORIZED
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(358,12)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(363,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(364,9)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(365,12)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(365,12)
+            remark #15399: vectorization support: unroll factor set to 4
+            remark #15300: LOOP WAS VECTORIZED
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(365,12)
+         <Remainder>
+            remark #15301: REMAINDER LOOP WAS VECTORIZED
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(365,12)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(370,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(371,9)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(372,12)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(372,12)
+            remark #15399: vectorization support: unroll factor set to 4
+            remark #15300: LOOP WAS VECTORIZED
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(372,12)
+         <Remainder>
+            remark #15301: REMAINDER LOOP WAS VECTORIZED
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(372,12)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(377,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(378,9)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(379,12)
+            remark #25401: memcopy(with guard) generated
+            remark #15542: loop was not vectorized: inner loop was already vectorized
+
+            LOOP BEGIN at shallow_omp.f90(379,12)
+            <Peeled, Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(379,12)
+            <Multiversioned v2>
+               remark #15300: LOOP WAS VECTORIZED
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(379,12)
+            <Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(379,12)
+            <Remainder, Multiversioned v2>
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(384,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(385,9)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(386,12)
+            remark #25401: memcopy(with guard) generated
+            remark #15542: loop was not vectorized: inner loop was already vectorized
+
+            LOOP BEGIN at shallow_omp.f90(386,12)
+            <Peeled, Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(386,12)
+            <Multiversioned v2>
+               remark #15300: LOOP WAS VECTORIZED
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(386,12)
+            <Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(386,12)
+            <Remainder, Multiversioned v2>
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(391,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(392,9)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(393,12)
+            remark #25401: memcopy(with guard) generated
+            remark #15542: loop was not vectorized: inner loop was already vectorized
+
+            LOOP BEGIN at shallow_omp.f90(393,12)
+            <Peeled, Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(393,12)
+            <Multiversioned v2>
+               remark #15300: LOOP WAS VECTORIZED
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(393,12)
+            <Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(393,12)
+            <Remainder, Multiversioned v2>
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(406,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(407,9)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(408,12)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(408,12)
+            remark #25427: Loop Statements Reordered
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(408,12)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(438,49)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(438,49)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(438,49)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(438,49)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(439,49)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(439,49)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(439,49)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(439,49)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(440,49)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(440,49)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(440,49)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_omp.f90(440,49)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SHALLOW
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW) [1] shallow_omp.f90(1,9)
+  -> INLINE: (85,8) CHECK
+  -> INLINE: (87,8) CHECK
+  -> INLINE: (89,8) CHECK
+  -> INLINE: (108,11) NETCDF_SETUP
+    -> INLINE: (539,12) CHECK_ERR
+    -> INLINE: (542,12) CHECK_ERR
+    -> INLINE: (544,12) CHECK_ERR
+    -> INLINE: (548,12) CHECK_ERR
+    -> INLINE: (552,12) CHECK_ERR
+    -> INLINE: (558,12) CHECK_ERR
+    -> INLINE: (563,12) CHECK_ERR
+    -> INLINE: (568,12) CHECK_ERR
+    -> INLINE: (580,12) CHECK_ERR
+  -> INLINE: (195,11) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (196,11) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (197,11) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (438,14) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (439,14) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (440,14) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (464,11) CHECK_ERR
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at shallow_omp.f90(154,3)
+   remark #25439: unrolled with remainder by 2  
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(154,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(158,3)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(158,3)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(158,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(195,46)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(195,46)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(195,46)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(195,46)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(196,46)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(196,46)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(196,46)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(196,46)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(197,46)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(197,46)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(197,46)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(197,46)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(452,15)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(452,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(452,15)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(452,15)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(452,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(454,14)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(454,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(454,14)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(454,14)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(454,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(456,14)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(456,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(456,14)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(456,14)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(456,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(133,3)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(134,6)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(134,6)
+      remark #25427: Loop Statements Reordered
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(134,6)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(145,3)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(146,6)
+   <Peeled>
+      remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(146,6)
+      remark #15399: vectorization support: unroll factor set to 4
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(146,6)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(146,6)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(167,3)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(168,6)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(168,6)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(168,6)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(220,3)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(226,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(227,6)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(228,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(228,9)
+            remark #15399: vectorization support: unroll factor set to 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(228,9)
+         <Remainder>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(228,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(233,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(234,6)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(235,9)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(235,9)
+            remark #15399: vectorization support: unroll factor set to 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(235,9)
+         <Remainder>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(235,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(240,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(241,6)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(242,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(242,9)
+            remark #15399: vectorization support: unroll factor set to 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(242,9)
+         <Remainder>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(242,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(248,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(249,6)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(250,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 5
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(250,9)
+            remark #15399: vectorization support: unroll factor set to 4
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 8
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(250,9)
+         <Remainder>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(250,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(263,6)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(263,6)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(275,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(276,6)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(276,6)
+         remark #25460: No loop optimizations reported
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(276,6)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(294,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(295,6)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(296,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(296,9)
+            remark #25460: No loop optimizations reported
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(296,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(303,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(304,6)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(305,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(305,9)
+            remark #25460: No loop optimizations reported
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(305,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(312,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(313,6)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(314,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(314,9)
+            remark #15399: vectorization support: unroll factor set to 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(314,9)
+         <Remainder>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(314,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(327,6)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(327,6)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(337,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(338,6)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(338,6)
+         remark #25460: No loop optimizations reported
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(338,6)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(356,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(357,9)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(358,12)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(358,12)
+            remark #15399: vectorization support: unroll factor set to 4
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(358,12)
+         <Remainder>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(358,12)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(363,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(364,9)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(365,12)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(365,12)
+            remark #15399: vectorization support: unroll factor set to 4
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(365,12)
+         <Remainder>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(365,12)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(370,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(371,9)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(372,12)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(372,12)
+            remark #15399: vectorization support: unroll factor set to 4
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(372,12)
+         <Remainder>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(372,12)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(377,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(378,9)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(379,12)
+            remark #25401: memcopy(with guard) generated
+
+            LOOP BEGIN at shallow_omp.f90(379,12)
+            <Peeled, Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(379,12)
+            <Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(379,12)
+            <Remainder, Multiversioned v2>
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(384,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(385,9)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(386,12)
+            remark #25401: memcopy(with guard) generated
+
+            LOOP BEGIN at shallow_omp.f90(386,12)
+            <Peeled, Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(386,12)
+            <Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(386,12)
+            <Remainder, Multiversioned v2>
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(391,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(392,9)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(393,12)
+            remark #25401: memcopy(with guard) generated
+
+            LOOP BEGIN at shallow_omp.f90(393,12)
+            <Peeled, Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(393,12)
+            <Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(393,12)
+            <Remainder, Multiversioned v2>
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(406,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(407,9)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(408,12)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(408,12)
+            remark #25427: Loop Statements Reordered
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(408,12)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(438,49)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(438,49)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(438,49)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(438,49)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(439,49)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(439,49)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(439,49)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(439,49)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(440,49)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(440,49)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(440,49)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(440,49)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+===========================================================================
+
+Begin optimization report for: SHALLOW
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW) [1] shallow_omp.f90(1,9)
+  -> INLINE: (85,8) CHECK
+  -> INLINE: (87,8) CHECK
+  -> INLINE: (89,8) CHECK
+  -> INLINE: (108,11) NETCDF_SETUP
+    -> INLINE: (539,12) CHECK_ERR
+    -> INLINE: (542,12) CHECK_ERR
+    -> INLINE: (544,12) CHECK_ERR
+    -> INLINE: (548,12) CHECK_ERR
+    -> INLINE: (552,12) CHECK_ERR
+    -> INLINE: (558,12) CHECK_ERR
+    -> INLINE: (563,12) CHECK_ERR
+    -> INLINE: (568,12) CHECK_ERR
+    -> INLINE: (580,12) CHECK_ERR
+  -> INLINE: (195,11) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (196,11) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (197,11) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (438,14) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (439,14) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (440,14) MY_NCWRITE
+    -> INLINE: (599,12) CHECK_ERR
+    -> INLINE: (604,12) CHECK_ERR
+  -> INLINE: (464,11) CHECK_ERR
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at shallow_omp.f90(154,3)
+   remark #25439: unrolled with remainder by 2  
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(154,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(158,3)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(158,3)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(158,3)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(158,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(195,46)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(195,46)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(195,46)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(195,46)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(195,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(196,46)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(196,46)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(196,46)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(196,46)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(196,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(197,46)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(197,46)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(197,46)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(197,46)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(197,46)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(452,15)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(452,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(452,15)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(452,15)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(452,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(454,14)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(454,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(454,14)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(454,14)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(454,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(456,14)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(456,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(456,14)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(456,14)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(456,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(133,3)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(134,6)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(134,6)
+      remark #25427: Loop Statements Reordered
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(134,6)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(145,3)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(146,6)
+   <Peeled>
+      remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(146,6)
+      remark #15399: vectorization support: unroll factor set to 4
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(146,6)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(146,6)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(146,6)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(167,3)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(168,6)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(168,6)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(168,6)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_omp.f90(220,3)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_omp.f90(226,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(227,6)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(228,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(228,9)
+            remark #15399: vectorization support: unroll factor set to 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(228,9)
+            remark #25460: No loop optimizations reported
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(228,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(233,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(234,6)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(235,9)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(235,9)
+            remark #15399: vectorization support: unroll factor set to 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(235,9)
+            remark #25460: No loop optimizations reported
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(235,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(240,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(241,6)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(242,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(242,9)
+            remark #15399: vectorization support: unroll factor set to 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(242,9)
+            remark #25460: No loop optimizations reported
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(242,9)
+         <Remainder>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(242,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(248,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(249,6)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(250,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 5
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(250,9)
+            remark #15399: vectorization support: unroll factor set to 4
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 8
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(250,9)
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 8
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(250,9)
+         <Remainder>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 5
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(263,6)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(263,6)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(275,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(276,6)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(276,6)
+         remark #25460: No loop optimizations reported
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(276,6)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(294,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(295,6)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(296,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(296,9)
+            remark #25460: No loop optimizations reported
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(296,9)
+            remark #25460: No loop optimizations reported
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(296,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(303,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(304,6)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(305,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(305,9)
+            remark #25460: No loop optimizations reported
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(305,9)
+            remark #25460: No loop optimizations reported
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(305,9)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(312,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(313,6)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(314,9)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(314,9)
+            remark #15399: vectorization support: unroll factor set to 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(314,9)
+            remark #25460: No loop optimizations reported
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(314,9)
+         <Remainder>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(327,6)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(327,6)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(337,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(338,6)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(338,6)
+         remark #25460: No loop optimizations reported
+      LOOP END
+
+      LOOP BEGIN at shallow_omp.f90(338,6)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(356,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(357,9)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(358,12)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(358,12)
+            remark #15399: vectorization support: unroll factor set to 4
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(358,12)
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(358,12)
+         <Remainder>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(363,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(364,9)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(365,12)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(365,12)
+            remark #15399: vectorization support: unroll factor set to 4
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(365,12)
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(365,12)
+         <Remainder>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(370,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(371,9)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(372,12)
+         <Peeled>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(372,12)
+            remark #15399: vectorization support: unroll factor set to 4
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(372,12)
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 4
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(372,12)
+         <Remainder>
+            remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(377,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(378,9)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(379,12)
+            remark #25401: memcopy(with guard) generated
+
+            LOOP BEGIN at shallow_omp.f90(379,12)
+            <Peeled, Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(379,12)
+            <Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(379,12)
+            <Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(379,12)
+            <Remainder, Multiversioned v2>
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(384,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(385,9)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(386,12)
+            remark #25401: memcopy(with guard) generated
+
+            LOOP BEGIN at shallow_omp.f90(386,12)
+            <Peeled, Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(386,12)
+            <Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(386,12)
+            <Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(386,12)
+            <Remainder, Multiversioned v2>
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(391,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(392,9)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(393,12)
+            remark #25401: memcopy(with guard) generated
+
+            LOOP BEGIN at shallow_omp.f90(393,12)
+            <Peeled, Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(393,12)
+            <Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(393,12)
+            <Multiversioned v2>
+            LOOP END
+
+            LOOP BEGIN at shallow_omp.f90(393,12)
+            <Remainder, Multiversioned v2>
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(406,7)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(407,9)
+         remark #25460: No loop optimizations reported
+
+         LOOP BEGIN at shallow_omp.f90(408,12)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(408,12)
+            remark #25427: Loop Statements Reordered
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(408,12)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(438,49)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(438,49)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(438,49)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(438,49)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(438,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(439,49)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(439,49)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(439,49)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(439,49)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(439,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(440,49)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(440,49)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_omp.f90(440,49)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_omp.f90(440,49)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_omp.f90(440,49)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+===========================================================================
+
+Begin optimization report for: MY_NCWRITE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (MY_NCWRITE) [2] shallow_omp.f90(586,18)
+  -> INLINE: (599,12) CHECK_ERR
+  -> INLINE: (604,12) CHECK_ERR
+
+===========================================================================
+
+Begin optimization report for: NETCDF_SETUP
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (NETCDF_SETUP) [3] shallow_omp.f90(503,18)
+  -> INLINE: (539,12) CHECK_ERR
+  -> INLINE: (542,12) CHECK_ERR
+  -> INLINE: (544,12) CHECK_ERR
+  -> INLINE: (548,12) CHECK_ERR
+  -> INLINE: (552,12) CHECK_ERR
+  -> INLINE: (558,12) CHECK_ERR
+  -> INLINE: (563,12) CHECK_ERR
+  -> INLINE: (568,12) CHECK_ERR
+  -> INLINE: (580,12) CHECK_ERR
+
+===========================================================================
+
+Begin optimization report for: CHECK
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CHECK) [4] shallow_omp.f90(477,18)
+
+===========================================================================
+
+Begin optimization report for: CHECK_ERR
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CHECK_ERR) [5] shallow_omp.f90(492,18)
+
+===========================================================================

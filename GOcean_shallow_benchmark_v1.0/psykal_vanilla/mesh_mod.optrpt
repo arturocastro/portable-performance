@@ -1,0 +1,27 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: disabled (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+
+Begin optimization report for: mesh_mod._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (mesh_mod._) [1] mesh_mod.f90(2,8)
+
+===========================================================================
+
+Begin optimization report for: MESH_MOD::MESH_INIT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (MESH_MOD::MESH_INIT) [2] mesh_mod.f90(24,14)
+
+===========================================================================

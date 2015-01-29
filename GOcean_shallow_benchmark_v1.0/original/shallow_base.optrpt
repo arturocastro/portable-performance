@@ -1,0 +1,1863 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: disabled (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+
+Begin optimization report for: SHALLOW
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW) [1] shallow_base.f90(1,15)
+  -> INLINE: (88,14) CHECK
+  -> INLINE: (90,14) CHECK
+  -> INLINE: (92,14) CHECK
+  -> INLINE: (106,15) NETCDF_SETUP
+    -> INLINE: (507,12) CHECK_ERR
+    -> INLINE: (510,12) CHECK_ERR
+    -> INLINE: (512,12) CHECK_ERR
+    -> INLINE: (516,12) CHECK_ERR
+    -> INLINE: (520,12) CHECK_ERR
+    -> INLINE: (526,12) CHECK_ERR
+    -> INLINE: (531,12) CHECK_ERR
+    -> INLINE: (536,12) CHECK_ERR
+    -> INLINE: (548,12) CHECK_ERR
+  -> INLINE: (183,15) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (184,15) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (185,15) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (408,18) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (409,18) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (410,18) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (432,15) CHECK_ERR
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at shallow_base.f90(129,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_base.f90(130,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(130,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(130,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(138,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_base.f90(139,10)
+   <Peeled>
+      remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(139,10)
+      remark #15399: vectorization support: unroll factor set to 4
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(139,10)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(139,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(146,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   remark #25439: unrolled with remainder by 2  
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(146,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(150,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(150,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(150,7)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(150,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(156,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_base.f90(157,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(157,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(157,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(183,50)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_base.f90(183,50)
+      remark #25401: memcopy(with guard) generated
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(183,50)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_base.f90(183,50)
+      remark #25401: memcopy(with guard) generated
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(184,50)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_base.f90(184,50)
+      remark #25401: memcopy(with guard) generated
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(184,50)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_base.f90(184,50)
+      remark #25401: memcopy(with guard) generated
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(185,50)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_base.f90(185,50)
+      remark #25401: memcopy(with guard) generated
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(185,50)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_base.f90(185,50)
+      remark #25401: memcopy(with guard) generated
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(199,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_base.f90(209,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_base.f90(210,13)
+      <Peeled>
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 17
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(210,13)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(210,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(226,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(226,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(232,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(232,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(232,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(254,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_base.f90(255,13)
+      <Peeled>
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 12
+         remark #25458: Number of Array Refs Scalar Replaced with grouping: 2
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(255,13)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(255,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(273,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(273,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(278,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(278,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(278,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(307,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_base.f90(308,16)
+      <Peeled>
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 3
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(308,16)
+         remark #25427: Loop Statements Reordered
+         remark #15300: LOOP WAS VECTORIZED
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 3
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(308,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(323,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(331,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(331,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(331,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(352,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_base.f90(353,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(353,16)
+         remark #25427: Loop Statements Reordered
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(353,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(408,53)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_base.f90(408,53)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(408,53)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_base.f90(408,53)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(409,53)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_base.f90(409,53)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(409,53)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_base.f90(409,53)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(410,53)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_base.f90(410,53)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(410,53)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at shallow_base.f90(410,53)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(420,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_base.f90(420,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(420,19)
+      remark #15399: vectorization support: unroll factor set to 8
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(420,19)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(420,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(422,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_base.f90(422,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(422,18)
+      remark #15399: vectorization support: unroll factor set to 8
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(422,18)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(422,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(424,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at shallow_base.f90(424,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(424,18)
+      remark #15399: vectorization support: unroll factor set to 8
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(424,18)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(424,18)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SHALLOW
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW) [1] shallow_base.f90(1,15)
+  -> INLINE: (88,14) CHECK
+  -> INLINE: (90,14) CHECK
+  -> INLINE: (92,14) CHECK
+  -> INLINE: (106,15) NETCDF_SETUP
+    -> INLINE: (507,12) CHECK_ERR
+    -> INLINE: (510,12) CHECK_ERR
+    -> INLINE: (512,12) CHECK_ERR
+    -> INLINE: (516,12) CHECK_ERR
+    -> INLINE: (520,12) CHECK_ERR
+    -> INLINE: (526,12) CHECK_ERR
+    -> INLINE: (531,12) CHECK_ERR
+    -> INLINE: (536,12) CHECK_ERR
+    -> INLINE: (548,12) CHECK_ERR
+  -> INLINE: (183,15) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (184,15) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (185,15) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (408,18) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (409,18) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (410,18) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (432,15) CHECK_ERR
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at shallow_base.f90(129,7)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(130,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(130,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(130,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(138,7)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(139,10)
+   <Peeled>
+      remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(139,10)
+      remark #15399: vectorization support: unroll factor set to 4
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(139,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(139,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(146,7)
+   remark #25439: unrolled with remainder by 2  
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(146,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(150,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(150,7)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(150,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(156,7)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(157,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(157,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(157,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(183,50)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(183,50)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(183,50)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(183,50)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(184,50)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(184,50)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(184,50)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(184,50)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(185,50)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(185,50)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(185,50)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(185,50)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(199,7)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(209,10)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(210,13)
+      <Peeled>
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 17
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(210,13)
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(210,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(226,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(226,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(232,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(232,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(232,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(254,10)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(255,13)
+      <Peeled>
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 12
+         remark #25458: Number of Array Refs Scalar Replaced with grouping: 2
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(255,13)
+         remark #25460: No loop optimizations reported
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(255,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(273,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(273,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(278,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(278,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(278,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(307,13)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(308,16)
+      <Peeled>
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 3
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(308,16)
+         remark #25427: Loop Statements Reordered
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 3
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(308,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(323,13)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(331,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(331,13)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(331,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(352,13)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(353,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(353,16)
+         remark #25427: Loop Statements Reordered
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(353,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(408,53)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(408,53)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(408,53)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(408,53)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(409,53)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(409,53)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(409,53)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(409,53)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(410,53)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(410,53)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(410,53)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(410,53)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(420,19)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(420,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(420,19)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(420,19)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(420,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(422,18)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(422,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(422,18)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(422,18)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(422,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(424,18)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(424,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(424,18)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(424,18)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(424,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+===========================================================================
+
+Begin optimization report for: SHALLOW
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SHALLOW) [1] shallow_base.f90(1,15)
+  -> INLINE: (88,14) CHECK
+  -> INLINE: (90,14) CHECK
+  -> INLINE: (92,14) CHECK
+  -> INLINE: (106,15) NETCDF_SETUP
+    -> INLINE: (507,12) CHECK_ERR
+    -> INLINE: (510,12) CHECK_ERR
+    -> INLINE: (512,12) CHECK_ERR
+    -> INLINE: (516,12) CHECK_ERR
+    -> INLINE: (520,12) CHECK_ERR
+    -> INLINE: (526,12) CHECK_ERR
+    -> INLINE: (531,12) CHECK_ERR
+    -> INLINE: (536,12) CHECK_ERR
+    -> INLINE: (548,12) CHECK_ERR
+  -> INLINE: (183,15) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (184,15) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (185,15) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (408,18) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (409,18) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (410,18) MY_NCWRITE
+    -> INLINE: (567,12) CHECK_ERR
+    -> INLINE: (572,12) CHECK_ERR
+  -> INLINE: (432,15) CHECK_ERR
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at shallow_base.f90(129,7)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(130,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(130,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(130,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(138,7)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(139,10)
+   <Peeled>
+      remark #25456: Number of Array Refs Scalar Replaced In Loop: 2
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(139,10)
+      remark #15399: vectorization support: unroll factor set to 4
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(139,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(139,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(139,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(146,7)
+   remark #25439: unrolled with remainder by 2  
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(146,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(150,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(150,7)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(150,7)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(150,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(156,7)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(157,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(157,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(157,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(183,50)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(183,50)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(183,50)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(183,50)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(183,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(184,50)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(184,50)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(184,50)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(184,50)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(184,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(185,50)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(185,50)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(185,50)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(185,50)
+      remark #25401: memcopy(with guard) generated
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(185,50)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(199,7)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(209,10)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(210,13)
+      <Peeled>
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 17
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(210,13)
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(210,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(226,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(226,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(232,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(232,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(232,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(254,10)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(255,13)
+      <Peeled>
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 12
+         remark #25458: Number of Array Refs Scalar Replaced with grouping: 2
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(255,13)
+         remark #25460: No loop optimizations reported
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(255,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(273,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(273,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(278,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(278,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(278,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(307,13)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(308,16)
+      <Peeled>
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 3
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(308,16)
+         remark #25427: Loop Statements Reordered
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 3
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(308,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(323,13)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(331,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(331,13)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(331,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(352,13)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(353,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(353,16)
+         remark #25427: Loop Statements Reordered
+      LOOP END
+
+      LOOP BEGIN at shallow_base.f90(353,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(408,53)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(408,53)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(408,53)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(408,53)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(408,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(409,53)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(409,53)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(409,53)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(409,53)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(409,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(410,53)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(410,53)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(410,53)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at shallow_base.f90(410,53)
+         remark #25401: memcopy(with guard) generated
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at shallow_base.f90(410,53)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(420,19)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(420,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(420,19)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(420,19)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(420,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(422,18)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(422,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(422,18)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(422,18)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(422,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at shallow_base.f90(424,18)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at shallow_base.f90(424,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(424,18)
+      remark #15399: vectorization support: unroll factor set to 8
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(424,18)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at shallow_base.f90(424,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+remark #34001: call to memcpy implemented as a call to optimized library version
+===========================================================================
+
+Begin optimization report for: MY_NCWRITE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (MY_NCWRITE) [2] shallow_base.f90(554,18)
+  -> INLINE: (567,12) CHECK_ERR
+  -> INLINE: (572,12) CHECK_ERR
+
+===========================================================================
+
+Begin optimization report for: NETCDF_SETUP
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (NETCDF_SETUP) [3] shallow_base.f90(471,18)
+  -> INLINE: (507,12) CHECK_ERR
+  -> INLINE: (510,12) CHECK_ERR
+  -> INLINE: (512,12) CHECK_ERR
+  -> INLINE: (516,12) CHECK_ERR
+  -> INLINE: (520,12) CHECK_ERR
+  -> INLINE: (526,12) CHECK_ERR
+  -> INLINE: (531,12) CHECK_ERR
+  -> INLINE: (536,12) CHECK_ERR
+  -> INLINE: (548,12) CHECK_ERR
+
+===========================================================================
+
+Begin optimization report for: CHECK
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CHECK) [4] shallow_base.f90(445,18)
+
+===========================================================================
+
+Begin optimization report for: CHECK_ERR
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CHECK_ERR) [5] shallow_base.f90(460,18)
+
+===========================================================================

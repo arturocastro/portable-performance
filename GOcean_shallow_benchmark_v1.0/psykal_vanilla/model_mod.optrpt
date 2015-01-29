@@ -1,0 +1,53 @@
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: disabled (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+
+Begin optimization report for: model_mod._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (model_mod._) [1] model_mod.f90(1,8)
+
+===========================================================================
+
+Begin optimization report for: MODEL_MOD::MODEL_FINALISE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (MODEL_MOD::MODEL_FINALISE) [2] model_mod.f90(142,14)
+  -> INLINE: (149,10) MODEL_MOD::MODEL_DEALLOC
+
+===========================================================================
+
+Begin optimization report for: MODEL_MOD::MODEL_ALLOC
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (MODEL_MOD::MODEL_ALLOC) [3] model_mod.f90(155,14)
+
+===========================================================================
+
+Begin optimization report for: MODEL_MOD::MODEL_DEALLOC
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (MODEL_MOD::MODEL_DEALLOC) [4] model_mod.f90(169,14)
+
+===========================================================================
+
+Begin optimization report for: MODEL_MOD::MODEL_INIT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (MODEL_MOD::MODEL_INIT) [5] model_mod.f90(97,14)
+  -> INLINE: (124,10) MODEL_MOD::MODEL_ALLOC
+
+===========================================================================
