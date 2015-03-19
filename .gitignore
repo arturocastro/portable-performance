@@ -29,3 +29,14 @@
 *.i*86
 *.x86_64
 *.hex
+
+# Temporal buffers
+*~
+*#
+
+# Particular executables
+devinfo
+clinfo
+shallow
+shallow_base
+shallow_opm
