@@ -11,13 +11,14 @@
 */
 #define MAIN_FILE
 
-#include "opencl_common.h"
-#include "shallow.h"
+#include "opencl_common.h" // 
+#include "shallow.h"       // define M, N, M_LEN, N_LEN
 //#include "common.h"
 
 //#include <CL/cl.h>
 #include <stdio.h>
 #include <math.h>
+#include <stdbool.h>
 //#include <pthread.h>
 
 
@@ -25,11 +26,12 @@
 #define PLATFORM_ID 0
 #define DEVICE_ID 0
 
-
-#define TRUE    1
-#define FALSE   0
 #define ITMAX   4000
-#define L_OUT   TRUE
+#define L_OUT   true
+
+#define PRINT_ALLOCS true
+#define PRINT_RESULTS true
+#define PRINT_TIMINGS true
 
 #define MIN(x,y) ((x)>(y)?(y):(x))
 #define MAX(x,y) ((x)>(y)?(x):(y))

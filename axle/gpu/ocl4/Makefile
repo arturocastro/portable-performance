@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -ggdb -Wall -O0 -fpermissive
+CFLAGS = -ggdb -Wall -O3 -fpermissive
 #CFLAGS = -ggdb -Wall -O0
 #axleman:
 ROOT = /usr/local/cuda-5.5/targets/x86_64-linux
