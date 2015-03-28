@@ -1,4 +1,4 @@
-CC = g++
+CC = gcc
 CFLAGS = -ggdb -Wall -O0 -fpermissive
 #CFLAGS = -ggdb -Wall -O0
 #axleman:
@@ -22,6 +22,12 @@ opencl_common.o: opencl_common.c opencl_common.h
 
 wtime.o:
 	${CC} -c ${CFLAGS} wtime.c
+
+devinfo: devinfo.c
+	${CC} devinfo.c -o devinfo -I/usr/lib64/nvidia -I. -L/usr/lib64/nvidia -lOpenCL
+
+clinfo: clInfo.c
+	${CC} -ggdb -Wall -O0 -fpermissive clInfo.c -o clinfo -I/usr/lib64/nvidia -I. -L/usr/lib64/nvidia -lOpenCL
 
 clean:
 	rm *.o shallow
