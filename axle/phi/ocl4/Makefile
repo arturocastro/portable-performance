@@ -1,4 +1,4 @@
-CC = g++
+CC = gcc
 CFLAGS = -ggdb -Wall -O0 -fpermissive
 #CFLAGS = -ggdb -Wall -O0
 #axleman:
