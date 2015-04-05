@@ -6,7 +6,10 @@
 
 #pragma OPENCL EXTENSION cl_khr_fp64: enable
 
-__kernel void init1(double a, double di, double dj, double pcf,
+__kernel
+__attribute__((vec_type_hint(double)))
+__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+void init1(double a, double di, double dj, double pcf,
     __global double *p,  __global double *psi) 
 {
     int x = get_global_id(0);
@@ -16,31 +19,40 @@ __kernel void init1(double a, double di, double dj, double pcf,
     p[y*M_LEN + x] = pcf * (cos(2.0 * y * di) + cos(2.0 * x * dj)) + 50000.0;
 }
 
-__kernel void init2(double dx, double dy,
+__kernel
+__attribute__((vec_type_hint(double)))
+__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+void init2(double dx, double dy,
     __global double *u,  __global double *v, __global double *psi) 
 {
     int x = get_global_id(0);
     int y = get_global_id(1);
 
-    if(x < N && y < M) { // FIXME Any better way? 
+    if(x < N && y < M) // FIXME Any better way?
+    {
       u[(y + 1)*M_LEN + x] = -(psi[(y + 1)*M_LEN + x + 1] - psi[(y + 1)*M_LEN + x]) / dy;
       v[y*M_LEN + x + 1] = (psi[(y + 1)*M_LEN + x + 1] - psi[y*M_LEN + x + 1]) / dx;
     }
 }
 
-__kernel void init_pc( __global double *u,  __global double *v,  __global double *p,
+__kernel
+__attribute__((vec_type_hint(double)))
+__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+void init_pc( __global double *u,  __global double *v,  __global double *p,
                        __global double *uold,  __global double *vold,  __global double *pold) 
 {
 
     int x = get_global_id(0);
     int y = get_global_id(1);
 
-    if(x < N) { // FIXME
+    if(x < N) // FIXME
+    {
         u[(0)*M_LEN + (x)] = u[(M)*M_LEN + (x)];
         v[(M)*M_LEN + (x + 1)] = v[(0)*M_LEN + (x + 1)];
     }
 
-    if(y < M) { // FIXME
+    if(y < M) // FIXME
+    {
         u[(y + 1)*M_LEN + (N)] = u[(y + 1)*M_LEN + (0)];
         v[(y)*M_LEN + (0)] = v[(y)*M_LEN + (N)];
     }
@@ -53,14 +65,18 @@ __kernel void init_pc( __global double *u,  __global double *v,  __global double
     pold[(y)*M_LEN + (x)] = p[(y)*M_LEN + (x)];
 }
 
-__kernel void l100(double fsdx, double fsdy, 
+__kernel
+__attribute__((vec_type_hint(double)))
+__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+void l100(double fsdx, double fsdy, 
      __global double *u,  __global double *v,  __global double *p,
      __global double *cu,  __global double *cv,  __global double *z,  __global double *h) 
 {
     int x = get_global_id(0);
     int y = get_global_id(1);
 
-    if(x < N && y < M) { // FIXME
+    if(x < N && y < M) // FIXME
+    {
         cu[(y + 1)*M_LEN + (x)] = .5 * (p[(y + 1)*M_LEN + (x)] + p[(y)*M_LEN + (x)]) * u[(y + 1)*M_LEN + (x)];
         cv[(y)*M_LEN + (x + 1)] = .5 * (p[(y)*M_LEN + (x + 1)] + p[(y)*M_LEN + (x)]) * v[(y)*M_LEN + (x + 1)];
         z[(y + 1)*M_LEN + (x + 1)] = (fsdx * (v[(y + 1)*M_LEN + (x + 1)] - v[(y)*M_LEN + (x + 1)]) - fsdy * (u[(y + 1)*M_LEN + (x + 1)] - u[(y + 1)*M_LEN + (x)])) / (p[(y)*M_LEN + (x)] + p[(y + 1)*M_LEN + (x)] + p[(y + 1)*M_LEN + (x + 1)] + p[(y)*M_LEN + (x + 1)]);
@@ -68,7 +84,10 @@ __kernel void l100(double fsdx, double fsdy,
     }
 }
 
-__kernel void l100_pc( __global double *cu,  __global double *cv, 
+__kernel
+__attribute__((vec_type_hint(double)))
+__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+void l100_pc( __global double *cu,  __global double *cv, 
      __global double *z,  __global double *h) 
 {
     int x = get_global_id(0);
@@ -94,7 +113,10 @@ __kernel void l100_pc( __global double *cu,  __global double *cv,
     }
 }
 
-__kernel void l200(double tdts8, double tdtsdx, double tdtsdy,
+__kernel
+__attribute__((vec_type_hint(double)))
+__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+void l200(double tdts8, double tdtsdx, double tdtsdy,
      __global double *uold,  __global double *vold,  __global double *pold,
      __global double *unew,  __global double *vnew,  __global double *pnew,
      __global double *cu,  __global double *cv,  __global double *z,  __global double *h)
@@ -102,14 +124,18 @@ __kernel void l200(double tdts8, double tdtsdx, double tdtsdy,
     int x = get_global_id(0);
     int y = get_global_id(1);
 
-    if(y < M && x < N) { // FIXME
+    if(y < M && x < N) // FIXME
+    {
         unew[(y + 1)*M_LEN + (x)] = uold[(y + 1)*M_LEN + (x)] + tdts8 * (z[(y + 1)*M_LEN + (x + 1)] + z[(y + 1)*M_LEN + (x)]) * (cv[(y + 1)*M_LEN + (x + 1)] + cv[(y)*M_LEN + (x + 1)] + cv[(y)*M_LEN + (x)] + cv[(y + 1)*M_LEN + (x)]) - tdtsdx * (h[(y + 1)*M_LEN + (x)] - h[(y)*M_LEN + (x)]);
         vnew[(y)*M_LEN + (x + 1)] = vold[(y)*M_LEN + (x + 1)] - tdts8 * (z[(y + 1)*M_LEN + (x + 1)] + z[(y)*M_LEN + (x + 1)]) * (cu[(y + 1)*M_LEN + (x + 1)] + cu[(y)*M_LEN + (x + 1)] + cu[(y)*M_LEN + (x)] + cu[(y + 1)*M_LEN + (x)]) - tdtsdy * (h[(y)*M_LEN + (x + 1)] - h[(y)*M_LEN + (x)]);
         pnew[(y)*M_LEN + (x)] = pold[(y)*M_LEN + (x)] - tdtsdx * (cu[(y + 1)*M_LEN + (x)] - cu[(y)*M_LEN + (x)]) - tdtsdy * (cv[(y)*M_LEN + (x + 1)] - cv[(y)*M_LEN + (x)]); 
     }
 }
 
-__kernel void l200_pc( __global double *unew,  __global double *vnew, 
+__kernel
+__attribute__((vec_type_hint(double)))
+__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+void l200_pc( __global double *unew,  __global double *vnew, 
      __global double *pnew)
 {
     int x = get_global_id(0);
@@ -132,7 +158,10 @@ __kernel void l200_pc( __global double *unew,  __global double *vnew,
     pnew[(M)*M_LEN + (N)] = pnew[(0)*M_LEN + (0)];
 }
 
-__kernel void l300(double alpha,  __global double *u,  __global double *v,  __global double *p,
+__kernel
+__attribute__((vec_type_hint(double)))
+__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+void l300(double alpha,  __global double *u,  __global double *v,  __global double *p,
      __global double *uold,  __global double *vold,  __global double *pold,
      __global double *unew,  __global double *vnew,  __global double *pnew) 
 {
@@ -148,7 +177,10 @@ __kernel void l300(double alpha,  __global double *u,  __global double *v,  __gl
     p[(y)*M_LEN + (x)] = pnew[(y)*M_LEN + (x)];
 }
 
-__kernel void l300_pc(__global double *u,  __global double *v,  __global double *p,
+__kernel
+__attribute__((vec_type_hint(double)))
+__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+void l300_pc(__global double *u,  __global double *v,  __global double *p,
      __global double *uold,  __global double *vold,  __global double *pold,
      __global double *unew,  __global double *vnew,  __global double *pnew)
 {

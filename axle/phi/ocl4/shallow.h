@@ -8,4 +8,9 @@
 #define M_LEN (M+1)
 #define N_LEN (N+1)
 
+#define M_BLOCK_LEN 256
+#define N_BLOCK_LEN 1
+
 #endif
+
+

@@ -93,6 +93,9 @@ int main(int argc, char **argv) {
     cl_mem buf_z, buf_h, buf_psi;
 
     size_t global_worksize[2] = {M_LEN, N_LEN};
+    size_t global_worksize2[2] = {M_LEN - 1, N_LEN - 1};
+    //size_t local_worksize[2] = {M_BLOCK_LEN, N_BLOCK_LEN};
+    size_t* local_worksize = NULL;
 
     int elements = M_LEN * N_LEN;
     int datasize = elements * sizeof(double);
@@ -313,10 +316,10 @@ int main(int argc, char **argv) {
     // *** Initialise grids ***
 
     // Enqueue kernel for execution
-    CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_init1, 2, NULL, global_worksize, NULL, 0, NULL, NULL));
+    CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_init1, 2, NULL, global_worksize, local_worksize, 0, NULL, NULL));
     CL_CHECK(clFinish(cmd_queue));
-    CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_init2, 2, NULL, global_worksize, NULL, 0, NULL, NULL));
-    CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_init_pc, 2, NULL, global_worksize, NULL, 0, NULL, NULL));
+    CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_init2, 2, NULL, global_worksize, local_worksize, 0, NULL, NULL));
+    CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_init_pc, 2, NULL, global_worksize, local_worksize, 0, NULL, NULL));
 
     // Start timer
     tstart = wtime();
@@ -329,10 +332,10 @@ int main(int argc, char **argv) {
     for (ncycle=1; ncycle <= ITMAX; ncycle++) {
 
         // l100: Compute capital u, capital v, z and h
-        CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_l100, 2, NULL, global_worksize, NULL, 0, NULL, NULL));
+        CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_l100, 2, NULL, global_worksize, local_worksize, 0, NULL, NULL));
 
         // Periodic continuation
-        CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_l100_pc, 2, NULL, global_worksize, NULL, 0, NULL, NULL));
+        CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_l100_pc, 2, NULL, global_worksize, local_worksize, 0, NULL, NULL));
 
         // Compute new values u,v and p
         tdts8 = tdt / 8.0;
@@ -344,19 +347,19 @@ int main(int argc, char **argv) {
         CL_CHECK(clSetKernelArg(kernel_l200,  1, sizeof(double), (void *)&tdtsdx));
         CL_CHECK(clSetKernelArg(kernel_l200,  2, sizeof(double), (void *)&tdtsdy));
 
-        CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_l200, 2, NULL, global_worksize, NULL, 0, NULL, NULL));
+        CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_l200, 2, NULL, global_worksize, local_worksize, 0, NULL, NULL));
 
         // Periodic continuation
-        CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_l200_pc, 2, NULL, global_worksize, NULL, 0, NULL, NULL));
+        CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_l200_pc, 2, NULL, global_worksize, local_worksize, 0, NULL, NULL));
         time = time + dt;
 
         // Time smoothing and update for next cycle
         if ( ncycle > 1 ) {
             // l300
-            CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_l300, 2, NULL, global_worksize, NULL, 0, NULL, NULL));
+            CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_l300, 2, NULL, global_worksize, local_worksize, 0, NULL, NULL));
         } else {
             tdt = tdt + tdt;
-            CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_l300_pc, 2, NULL, global_worksize, NULL, 0, NULL, NULL));
+            CL_CHECK(clEnqueueNDRangeKernel(cmd_queue, kernel_l300_pc, 2, NULL, global_worksize, local_worksize, 0, NULL, NULL));
         }
     }
     // ** End of time loop ** 
