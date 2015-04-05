@@ -1,13 +1,22 @@
 
-// Compile:
+// Compile g++ and NVIDIA OpenCL libraries (use a fresh terminal window!):
 //g++ devinfo.c -o devinfo -I/usr/lib64/nvidia -I. -L/usr/lib64/nvidia -lOpenCL
+//
+// Compile, Intel + Intel OpenCL
+// . /opt/intel/bin/compilervars.sh intel64
+// export LD_LIBRARY_PATH=/opt/intel/opencl/lib64:$LD_LIBRARY_PATH
+// icc devinfo.c -o devinfo -I/opt/intel/opencl-sdk -L/opt/intel/opencl -lOpenCL
+//
+// (Note: Use ldd ./devinfo to check the OpenCL libraries that will be used.)
+// (Note: You cannot simply swap to using g++ with the intel env set up. Use a fresh terminal.)
+
 #include <stdio.h>
 #include <malloc.h>
 #include <getopt.h>
 #include <stdlib.h>
 
 #include "CL/cl.h"
-
+//#include <CL/opencl.h>
 int main()
 
 {

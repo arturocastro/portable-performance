@@ -1,0 +1,22 @@
+31st March 2015
+
+Without any environment built, Makefile builds using g++ and NVIDIA OpenCL libraries.
+
+To run with Intel icc and Intel OpenCL, you have to do the following:
+
+. /opt/intel/bin/compilervars.sh intel64
+export LD_LIBRARY_PATH=/opt/intel/opencl/lib64:$LD_LIBRARY_PATH
+
+The first sets up the icc compiler, the second points to the Intel OpenCL library for run-time linking.
+
+
+There is a Makefile-intel which will build shallow for Intel:
+make -f Makefile-intel
+
+You can check the executable will find the right libraries using:
+ldd ./shallow
+
+This is all fine, but if you now wish to build with g++ and NVIDIA, you are better doing that in a new terminal window! It seems the environment variables get very confused and you can easily end up linking to the wrong OpenCL library (again, ldd ./shallow will tell you which one you will get).
+
+There must be a way to sort out the LD_LIBRARY_PATH more flexibly, but I need to think about that.
+
