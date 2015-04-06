@@ -16,11 +16,11 @@ LFLAGS = -L/opt/intel/opencl/lib64 -lOpenCL
 #LFLAGS = -L /mnt/scratch/NVIDIA_GPU_Computing_SDK/OpenCL/common/lib/Linux64 -lOpenCL -lm
 
 shallow: shallow.c shallow.h opencl_common.o wtime.o
-	${CC} ${CFLAGS} ${INCS} -o shallow opencl_common.c wtime.c shallow.c ${LFLAGS}
+	${CC} ${CFLAGS} ${INCS} -o shallow opencl_common.c wtime.c shallow.c ${LFLAGS} -DM=${SIZE}
 	rm -rf ~/.nv/ComputeCache
 
 opencl_common.o: opencl_common.c opencl_common.h
-	${CC} -c ${CFLAGS} ${INCS} opencl_common.c
+	${CC} -c ${CFLAGS} ${INCS} opencl_common.c -DM=${SIZE}
 
 wtime.o:
 	${CC} -c ${CFLAGS} wtime.c

@@ -12,7 +12,15 @@
 #define MAIN_FILE
 
 #include "opencl_common.h"
-#include "shallow.h"
+
+#ifndef M
+    #include "shallow.h"
+#else
+    #define N M
+    #define M_LEN (M+1)
+    #define N_LEN (N+1)
+#endif
+
 //#include "common.h"
 
 //#include <CL/cl.h>

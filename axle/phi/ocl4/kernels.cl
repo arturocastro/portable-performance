@@ -1,14 +1,16 @@
-#include "shallow.h"
-//#define M 2
-//#define N 2
-//#define M_LEN (M+1)
-//#define N_LEN (N+1)
+#ifndef M
+    #include "shallow.h"
+#else
+    #define N M
+    #define M_LEN (M+1)
+    #define N_LEN (N+1)
+#endif
 
 #pragma OPENCL EXTENSION cl_khr_fp64: enable
 
 __kernel
 __attribute__((vec_type_hint(double)))
-__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+//__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void init1(double a, double di, double dj, double pcf,
     __global double *p,  __global double *psi) 
 {
@@ -21,7 +23,7 @@ void init1(double a, double di, double dj, double pcf,
 
 __kernel
 __attribute__((vec_type_hint(double)))
-__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+//__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void init2(double dx, double dy,
     __global double *u,  __global double *v, __global double *psi) 
 {
@@ -37,7 +39,7 @@ void init2(double dx, double dy,
 
 __kernel
 __attribute__((vec_type_hint(double)))
-__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+//__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void init_pc( __global double *u,  __global double *v,  __global double *p,
                        __global double *uold,  __global double *vold,  __global double *pold) 
 {
@@ -67,7 +69,7 @@ void init_pc( __global double *u,  __global double *v,  __global double *p,
 
 __kernel
 __attribute__((vec_type_hint(double)))
-__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+//__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void l100(double fsdx, double fsdy, 
      __global double *u,  __global double *v,  __global double *p,
      __global double *cu,  __global double *cv,  __global double *z,  __global double *h) 
@@ -86,7 +88,7 @@ void l100(double fsdx, double fsdy,
 
 __kernel
 __attribute__((vec_type_hint(double)))
-__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+//__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void l100_pc( __global double *cu,  __global double *cv, 
      __global double *z,  __global double *h) 
 {
@@ -115,7 +117,7 @@ void l100_pc( __global double *cu,  __global double *cv,
 
 __kernel
 __attribute__((vec_type_hint(double)))
-__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+//__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void l200(double tdts8, double tdtsdx, double tdtsdy,
      __global double *uold,  __global double *vold,  __global double *pold,
      __global double *unew,  __global double *vnew,  __global double *pnew,
@@ -134,7 +136,7 @@ void l200(double tdts8, double tdtsdx, double tdtsdy,
 
 __kernel
 __attribute__((vec_type_hint(double)))
-__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+//__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void l200_pc( __global double *unew,  __global double *vnew, 
      __global double *pnew)
 {
@@ -160,7 +162,7 @@ void l200_pc( __global double *unew,  __global double *vnew,
 
 __kernel
 __attribute__((vec_type_hint(double)))
-__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+//__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void l300(double alpha,  __global double *u,  __global double *v,  __global double *p,
      __global double *uold,  __global double *vold,  __global double *pold,
      __global double *unew,  __global double *vnew,  __global double *pnew) 
@@ -179,7 +181,7 @@ void l300(double alpha,  __global double *u,  __global double *v,  __global doub
 
 __kernel
 __attribute__((vec_type_hint(double)))
-__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
+//__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void l300_pc(__global double *u,  __global double *v,  __global double *p,
      __global double *uold,  __global double *vold,  __global double *pold,
      __global double *unew,  __global double *vnew,  __global double *pnew)
