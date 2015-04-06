@@ -1,4 +1,5 @@
 #include "opencl_common.h"
+#include <string.h>
 
 /**
  * Initialise platform / device. We assume we already know which resources we
@@ -93,11 +94,19 @@ void build_program(unsigned int dev_id) {
     char *build_log;
     size_t log_size;
 
+    char str_size[8 * sizeof(int) + 1];
+
+    sprintf(str_size, "%d", M);
+
+    char flags[255] = "-w -DM=";
+
+    strcat(flags, str_size);
+
     program = clCreateProgramWithSource(context, 1, (const char **)&program_src, NULL, &status);
     CL_CHECK(status);
 
     //status = clBuildProgram(program, num_devices, devices, "-w -cl-nv-verbose", NULL, NULL);
-    status = clBuildProgram(program, num_devices, devices, "-w", NULL, NULL);
+    status = clBuildProgram(program, num_devices, devices, flags, NULL, NULL);
 
     if(status != CL_SUCCESS) {
         printf("Compilation failed:\n\n");
@@ -108,7 +117,7 @@ void build_program(unsigned int dev_id) {
     CL_CHECK(clGetProgramBuildInfo(program, devices[dev_id], CL_PROGRAM_BUILD_LOG, log_size, build_log, NULL));
     build_log[log_size] = '\0';
     //GDR
-    printf("GDR at build log print!/n");
+    printf("GDR at build log print!\n");
     printf("%s\n\n", build_log);
 }
 
