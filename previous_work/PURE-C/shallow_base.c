@@ -28,9 +28,9 @@
 #define MIN(x,y) ((x)>(y)?(y):(x))
 #define MAX(x,y) ((x)>(y)?(x):(y))
 
-//#ifndef M
-//    #define M 64
-//#endif
+#ifndef M
+    #define M 64
+#endif
 
 #define N M
 #define M_LEN M + 1
