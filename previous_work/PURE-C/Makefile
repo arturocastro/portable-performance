@@ -7,10 +7,10 @@ OS = -Os
 
 LFLAGS = -lm -fopenmp
 
-OPT = ${O2}
+OPT = ${O3}
 
 shallow_base: shallow_base.c wtime.o
-	${CC} ${CFLAGS} ${OPT} ${INCS} -o shallow_base wtime.c shallow_base.c ${LFLAGS}
+	${CC} ${CFLAGS} ${OPT} ${INCS} -o shallow_base wtime.c shallow_base.c ${LFLAGS} -DM=${SIZE}
 
 wtime.o:
 	${CC} -c ${CFLAGS} ${0PT} wtime.c

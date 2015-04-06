@@ -28,8 +28,11 @@
 #define MIN(x,y) ((x)>(y)?(y):(x))
 #define MAX(x,y) ((x)>(y)?(x):(y))
 
-#define M 512
-#define N 512
+//#ifndef M
+//    #define M 64
+//#endif
+
+#define N M
 #define M_LEN M + 1
 #define N_LEN N + 1
 #define ITMAX 4000
