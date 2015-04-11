@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -ggdb -Wall -O0 -fpermissive
 #CFLAGS = -ggdb -Wall -O0
 #axleman:
-ROOT = /usr/local/cuda-5.5/targets/x86_64-linux
+ROOT = /usr/local/cuda-6.5/targets/x86_64-linux
 # axleman:next is needed for LD_LIBRARY_PATH. Also have lib64.
 #LIBROOT = /usr/lib/nvidia
 #arndale2:
