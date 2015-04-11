@@ -33,7 +33,6 @@
 #define PLATFORM_ID 0
 #define DEVICE_ID 1
 
-
 #define TRUE    1
 #define FALSE   0
 #define ITMAX   4000
@@ -47,27 +46,27 @@ extern double wtime();
 int main(int argc, char **argv) {
  
     // solution arrays
-    double u[M_LEN * N_LEN];
-    double v[M_LEN * N_LEN];
-    double p[M_LEN * N_LEN];
+    double u[(M_LEN+1)*(N_LEN+1)];
+    double v[(M_LEN+1)*(N_LEN+1)];
+    double p[(M_LEN+1)*(N_LEN+1)];
 
-    double unew[M_LEN * N_LEN];
-    double vnew[M_LEN * N_LEN];
-    double pnew[M_LEN * N_LEN];
+    double unew[(M_LEN+1)*(N_LEN+1)];
+    double vnew[(M_LEN+1)*(N_LEN+1)];
+    double pnew[(M_LEN+1)*(N_LEN+1)];
 
-    double uold[M_LEN * N_LEN];
-    double vold[M_LEN * N_LEN];
-    double pold[M_LEN * N_LEN];
+    double uold[(M_LEN+1)*(N_LEN+1)];
+    double vold[(M_LEN+1)*(N_LEN+1)];
+    double pold[(M_LEN+1)*(N_LEN+1)];
 
-    double cu[M_LEN * N_LEN];
-    double cv[M_LEN * N_LEN];
+    double cu[(M_LEN+1)*(N_LEN+1)];
+    double cv[(M_LEN+1)*(N_LEN+1)];
 
-    double z[M_LEN * N_LEN];
-    double h[M_LEN * N_LEN];
+    double z[(M_LEN+1)*(N_LEN+1)];
+    double h[(M_LEN+1)*(N_LEN+1)];
 
-    double psi[M_LEN * N_LEN];
+    double psi[(M_LEN+1)*(N_LEN+1)];
 
-    double dt,tdt,dx,dy,a,alpha,el,pi;
+    double tdt,a,alpha,el,pi;
     double tpi,di,dj,pcf;
     double tdts8,tdtsdx,tdtsdy,fsdx,fsdy;
 
@@ -101,22 +100,25 @@ int main(int argc, char **argv) {
     cl_mem buf_z, buf_h, buf_psi;
 
     size_t global_worksize[2] = {M_LEN, N_LEN};
-    size_t global_worksize2[2] = {M_LEN - 1, N_LEN - 1};
-    //size_t local_worksize[2] = {M_BLOCK_LEN, N_BLOCK_LEN};
+    
+#ifdef M_BLOCK_LEN
+    size_t local_worksize[2] = {M_BLOCK_LEN, N_BLOCK_LEN};
+#else
     size_t* local_worksize = NULL;
+#endif
 
-    int elements = M_LEN * N_LEN;
+    int elements = (M_LEN+1) * (N_LEN+1);
     int datasize = elements * sizeof(double);
     printf("elements %d\n", elements);
     // ** Initialise vars ** 
 
     // Note below that two delta t (tdt) is set to dt on the first
     // cycle after which it is reset to dt+dt.
-    dt = 90.;
+    const double dt = 90.;
     tdt = dt;
 
-    dx = 100000.;
-    dy = 100000.;
+    const double dx = 100000.;
+    const double dy = 100000.;
     fsdx = 4. / dx;
     fsdy = 4. / dy;
 

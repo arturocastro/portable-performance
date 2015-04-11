@@ -6,10 +6,13 @@
     #define N_LEN (N+1)
 #endif
 
+//#define M_BLOCK_LEN 256
+//#define N_BLOCK_LEN 1
+
 #pragma OPENCL EXTENSION cl_khr_fp64: enable
 
 __kernel
-__attribute__((vec_type_hint(double)))
+//__attribute__((vec_type_hint(double)))
 //__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void init1(double a, double di, double dj, double pcf,
     __global double *p,  __global double *psi) 
@@ -22,7 +25,7 @@ void init1(double a, double di, double dj, double pcf,
 }
 
 __kernel
-__attribute__((vec_type_hint(double)))
+//__attribute__((vec_type_hint(double)))
 //__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void init2(double dx, double dy,
     __global double *u,  __global double *v, __global double *psi) 
@@ -30,7 +33,7 @@ void init2(double dx, double dy,
     int x = get_global_id(0);
     int y = get_global_id(1);
 
-    if(x < N && y < M) // FIXME Any better way?
+    //if(x < N && y < M) // FIXME Any better way?
     {
       u[(y + 1)*M_LEN + x] = -(psi[(y + 1)*M_LEN + x + 1] - psi[(y + 1)*M_LEN + x]) / dy;
       v[y*M_LEN + x + 1] = (psi[(y + 1)*M_LEN + x + 1] - psi[y*M_LEN + x + 1]) / dx;
@@ -38,7 +41,7 @@ void init2(double dx, double dy,
 }
 
 __kernel
-__attribute__((vec_type_hint(double)))
+//__attribute__((vec_type_hint(double)))
 //__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void init_pc( __global double *u,  __global double *v,  __global double *p,
                        __global double *uold,  __global double *vold,  __global double *pold) 
@@ -47,13 +50,13 @@ void init_pc( __global double *u,  __global double *v,  __global double *p,
     int x = get_global_id(0);
     int y = get_global_id(1);
 
-    if(x < N) // FIXME
+    //if(x < N) // FIXME
     {
         u[(0)*M_LEN + (x)] = u[(M)*M_LEN + (x)];
         v[(M)*M_LEN + (x + 1)] = v[(0)*M_LEN + (x + 1)];
     }
 
-    if(y < M) // FIXME
+    //if(y < M) // FIXME
     {
         u[(y + 1)*M_LEN + (N)] = u[(y + 1)*M_LEN + (0)];
         v[(y)*M_LEN + (0)] = v[(y)*M_LEN + (N)];
@@ -68,7 +71,7 @@ void init_pc( __global double *u,  __global double *v,  __global double *p,
 }
 
 __kernel
-__attribute__((vec_type_hint(double)))
+//__attribute__((vec_type_hint(double)))
 //__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void l100(double fsdx, double fsdy, 
      __global double *u,  __global double *v,  __global double *p,
@@ -77,7 +80,7 @@ void l100(double fsdx, double fsdy,
     int x = get_global_id(0);
     int y = get_global_id(1);
 
-    if(x < N && y < M) // FIXME
+    //if(x < N && y < M) // FIXME
     {
         cu[(y + 1)*M_LEN + (x)] = .5 * (p[(y + 1)*M_LEN + (x)] + p[(y)*M_LEN + (x)]) * u[(y + 1)*M_LEN + (x)];
         cv[(y)*M_LEN + (x + 1)] = .5 * (p[(y)*M_LEN + (x + 1)] + p[(y)*M_LEN + (x)]) * v[(y)*M_LEN + (x + 1)];
@@ -87,7 +90,7 @@ void l100(double fsdx, double fsdy,
 }
 
 __kernel
-__attribute__((vec_type_hint(double)))
+//__attribute__((vec_type_hint(double)))
 //__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void l100_pc( __global double *cu,  __global double *cv, 
      __global double *z,  __global double *h) 
@@ -100,14 +103,16 @@ void l100_pc( __global double *cu,  __global double *cv,
     z[(0)*M_LEN + (0)] = z[(M)*M_LEN + (N)];
     h[(M)*M_LEN + (N)] = h[(0)*M_LEN + (0)];
 
-    if(x < N) { // FIXME
+    //if(x < N)
+    { // FIXME
         cu[(0)*M_LEN + (x)] = cu[(M)*M_LEN + (x)];
         cv[(M)*M_LEN + (x + 1)] = cv[(0)*M_LEN + (x + 1)];
         z[(0)*M_LEN + (x + 1)] = z[(M)*M_LEN + (x + 1)];
         h[(M)*M_LEN + (x)] = h[(0)*M_LEN + (x)];
     }
 
-    if(y < M) { // FIXME
+    //if(y < M)
+    { // FIXME
         cu[(y + 1)*M_LEN + (N)] = cu[(y + 1)*M_LEN + (0)];
         cv[(y)*M_LEN + (0)] = cv[(y)*M_LEN + (N)];
         z[(y + 1)*M_LEN + (0)] = z[(y + 1)*M_LEN + (N)];
@@ -116,7 +121,7 @@ void l100_pc( __global double *cu,  __global double *cv,
 }
 
 __kernel
-__attribute__((vec_type_hint(double)))
+//__attribute__((vec_type_hint(double)))
 //__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void l200(double tdts8, double tdtsdx, double tdtsdy,
      __global double *uold,  __global double *vold,  __global double *pold,
@@ -126,7 +131,7 @@ void l200(double tdts8, double tdtsdx, double tdtsdy,
     int x = get_global_id(0);
     int y = get_global_id(1);
 
-    if(y < M && x < N) // FIXME
+    //if(y < M && x < N) // FIXME
     {
         unew[(y + 1)*M_LEN + (x)] = uold[(y + 1)*M_LEN + (x)] + tdts8 * (z[(y + 1)*M_LEN + (x + 1)] + z[(y + 1)*M_LEN + (x)]) * (cv[(y + 1)*M_LEN + (x + 1)] + cv[(y)*M_LEN + (x + 1)] + cv[(y)*M_LEN + (x)] + cv[(y + 1)*M_LEN + (x)]) - tdtsdx * (h[(y + 1)*M_LEN + (x)] - h[(y)*M_LEN + (x)]);
         vnew[(y)*M_LEN + (x + 1)] = vold[(y)*M_LEN + (x + 1)] - tdts8 * (z[(y + 1)*M_LEN + (x + 1)] + z[(y)*M_LEN + (x + 1)]) * (cu[(y + 1)*M_LEN + (x + 1)] + cu[(y)*M_LEN + (x + 1)] + cu[(y)*M_LEN + (x)] + cu[(y + 1)*M_LEN + (x)]) - tdtsdy * (h[(y)*M_LEN + (x + 1)] - h[(y)*M_LEN + (x)]);
@@ -135,7 +140,7 @@ void l200(double tdts8, double tdtsdx, double tdtsdy,
 }
 
 __kernel
-__attribute__((vec_type_hint(double)))
+//__attribute__((vec_type_hint(double)))
 //__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void l200_pc( __global double *unew,  __global double *vnew, 
      __global double *pnew)
@@ -143,13 +148,15 @@ void l200_pc( __global double *unew,  __global double *vnew,
     int x = get_global_id(0);
     int y = get_global_id(1);
 
-    if(x < N) { // FIXME
+    //if(x < N)
+    { // FIXME
         unew[(0)*M_LEN + (x)] = unew[(M)*M_LEN + (x)];
         vnew[(M)*M_LEN + (x + 1)] = vnew[(0)*M_LEN + (x + 1)];
         pnew[(M)*M_LEN + (x)] = pnew[(0)*M_LEN + (x)];
     }
 
-    if(y < M) { // FIXME
+    //if(y < M)
+    { // FIXME
         unew[(y + 1)*M_LEN + (N)] = unew[(y + 1)*M_LEN + (0)];
         vnew[(y)*M_LEN + (0)] = vnew[(y)*M_LEN + (N)];
         pnew[(y)*M_LEN + (N)] = pnew[(y)*M_LEN + (0)];
@@ -161,7 +168,7 @@ void l200_pc( __global double *unew,  __global double *vnew,
 }
 
 __kernel
-__attribute__((vec_type_hint(double)))
+//__attribute__((vec_type_hint(double)))
 //__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void l300(double alpha,  __global double *u,  __global double *v,  __global double *p,
      __global double *uold,  __global double *vold,  __global double *pold,
@@ -180,7 +187,7 @@ void l300(double alpha,  __global double *u,  __global double *v,  __global doub
 }
 
 __kernel
-__attribute__((vec_type_hint(double)))
+//__attribute__((vec_type_hint(double)))
 //__attribute__((work_group_size_hint(M_BLOCK_LEN, N_BLOCK_LEN, 1)))
 void l300_pc(__global double *u,  __global double *v,  __global double *p,
      __global double *uold,  __global double *vold,  __global double *pold,
