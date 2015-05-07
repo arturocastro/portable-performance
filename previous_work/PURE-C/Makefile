@@ -1,4 +1,4 @@
-CC = gcc
+CC = icc
 CFLAGS = -Wall -std=c99
 DBG = -ggdb -O0
 O3 = -O3
