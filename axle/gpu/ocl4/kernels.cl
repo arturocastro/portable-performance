@@ -1,8 +1,10 @@
-#include "shallow.h"
-//#define M 2
-//#define N 2
-//#define M_LEN (M+1)
-//#define N_LEN (N+1)
+#ifndef M
+    #include "shallow.h"
+#else
+    #define N M
+    #define M_LEN (M+1)
+    #define N_LEN (N+1)
+#endif
 
 #pragma OPENCL EXTENSION cl_khr_fp64: enable
 
