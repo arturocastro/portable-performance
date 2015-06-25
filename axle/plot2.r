@@ -3,7 +3,7 @@ library("ggplot2")
 
 results_path <- commandArgs(T)[1]
 plot_name <- commandArgs(T)[2]
-opt <- as.integer(commandArgs(T)[3])
+positions_path <- commandArgs(T)[3]
 y_upper_bound <- as.numeric(commandArgs(T)[4])
 
 data <- read.table(results_path)
@@ -24,9 +24,10 @@ for (n in 1 : nrow(datac))
 
 datac$V1 <- factor(datac$V1, levels=unique(as.character(datac$V1)) )
 
-if (opt == 1) positions <- c("16x4", "16x8", "16x16", "32x2", "32x4", "32x8", "32x16", "32x32", "64x1", "64x2", "64x4", "64x8", "64x16", "128x1", "128x2", "128x4", "128x8", "256x1", "256x2", "256x4", "512x1", "512x2", "1024x1", "16x32", "default")
-if (opt == 2) positions <- c("32x2", "32x4", "64x1", "64x2", "64x4", "128x1", "128x2")
-if (opt == 3) positions <- c("2x32", "4x32", "1x64", "2x64", "4x64", "1x128", "2x128")
+#if (opt == 1) positions <- c("16x4", "16x8", "16x16", "32x2", "32x4", "32x8", "32x16", "32x32", "64x1", "64x2", "64x4", "64x8", "64x16", "128x1", "128x2", "128x4", "128x8", "256x1", "256x2", "256x4", "512x1", "512x2", "1024x1", "16x32", "default")
+#if (opt == 2) positions <- c("32x2", "32x4", "64x1", "64x2", "64x4", "128x1", "128x2")
+#if (opt == 3) positions <- c("2x32", "4x32", "1x64", "2x64", "4x64", "1x128", "2x128")
+positions <- readLines(positions_path)
 
 print(ggplot(datac, aes(x=V2, y=V3, fill=as.factor(V1))) + 
     geom_bar(position=position_dodge(), stat="identity",
