@@ -1,6 +1,19 @@
 library("Rmisc")
 library("ggplot2")
 
+get_positions_labels <- function(positions)
+{
+    labels <- vector()
+    
+    for (pos in positions)
+    {
+        dims <- strsplit(pos, "x")[[1]]
+        labels <- c(labels, paste0(pos, "\n", as.integer(dims[1]) * as.integer(dims[2])))
+    }
+    
+    return(labels)
+}
+
 results_path <- commandArgs(T)[1]
 plot_name <- commandArgs(T)[2]
 positions_path <- commandArgs(T)[3]
@@ -28,6 +41,7 @@ datac$V1 <- factor(datac$V1, levels=unique(as.character(datac$V1)) )
 #if (opt == 2) positions <- c("32x2", "32x4", "64x1", "64x2", "64x4", "128x1", "128x2")
 #if (opt == 3) positions <- c("2x32", "4x32", "1x64", "2x64", "4x64", "1x128", "2x128")
 positions <- readLines(positions_path)
+positions_labels <- get_positions_labels(positions)
 
 print(ggplot(datac, aes(x=V2, y=V3, fill=as.factor(V1))) + 
     geom_bar(position=position_dodge(), stat="identity",
@@ -43,6 +57,6 @@ print(ggplot(datac, aes(x=V2, y=V3, fill=as.factor(V1))) +
                    breaks=c("31", "63", "127", "255", "511", "1023"),
                    labels=c("31", "63", "127", "255", "511", "1023"), start=1, end=0.4) +
     ggtitle(paste0("Performance for OpenCL version on ", plot_name)) +
-    theme_bw() + scale_x_discrete(limits = positions) + ylim(0.0, y_upper_bound))
+    theme_bw() + scale_x_discrete(limits=positions, labels=positions_labels) + ylim(0.0, y_upper_bound))
     
  ggsave(filename=paste0("plots/", plot_name, ".png"), width=17, limitsize=F)

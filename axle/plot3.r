@@ -12,7 +12,20 @@ mean_for_max <- function(data, datac)
     }
 }
 
-positions_file <- commandArgs(T)[1]
+get_positions_labels <- function(positions)
+{
+    labels <- vector()
+    
+    for (pos in positions)
+    {
+        dims <- strsplit(pos, "x")[[1]]
+        labels <- c(labels, paste0(pos, "\n", as.integer(dims[1]) * as.integer(dims[2])))
+    }
+    
+    return(labels)
+}
+
+positions_path <- commandArgs(T)[1]
 y_upper_bound <- commandArgs(T)[2]
 
 raw_cols <- c("size", "config", "time")
@@ -21,7 +34,8 @@ sizes <- c("31", "63", "127", "255", "511", "1023")
 
 #positions <- c("16x4", "16x8", "16x16", "32x2", "32x4", "32x8", "32x16", "32x32", "64x1", "64x2", "64x4", "64x8", "64x16", "128x1", "128x2", "128x4", "128x8", "256x1", "256x2", "256x4", "512x1", "512x2", "1024x1", "16x32", "default")
 #positions <- c("16x4", "16x8", "16x16", "32x2", "32x4", "32x8", "32x16", "32x32", "64x1", "64x2", "64x4", "64x8", "64x16", "128x1", "128x2", "128x4", "128x8", "256x1", "256x2", "256x4", "512x1", "512x2", "1024x1", "16x32", "default")
-positions <- readLines(positions_file)
+positions <- readLines(positions_path)
+positions_labels <- get_positions_labels(positions)
 
 datacpu <- read.table("cpu/ocl4/timings/all", col.names=raw_cols)
 datagpu <- read.table("gpu/ocl4/timings/all", col.names=raw_cols)
@@ -65,7 +79,7 @@ ggplot(d, aes(x=config, y=performance, fill=as.factor(dev))) +
                    breaks=c("cpu", "gpu", "phi"),
                    labels=c("Sandy Bridge CPU", "Nvidia GPU", "Xeon Phi"), start=1, end=0.4) +
     ggtitle(paste0("Performance for OpenCL version, problem size of ", size)) +
-    theme_bw() + scale_x_discrete(limits = positions) + ylim(0.0, y_upper_bound)
+    theme_bw() + scale_x_discrete(limits=positions, labels=positions_labels) + ylim(0.0, y_upper_bound)
     
     ggsave(filename=paste0("plots/", size, ".png"), width=17, limitsize=F)
 
@@ -83,7 +97,7 @@ ggplot(d, aes(x=config, y=performance, fill=as.factor(dev))) +
                    breaks=c("cpu", "gpu", "phi"),
                    labels=c("Sandy Bridge CPU", "Nvidia GPU", "Xeon Phi"), start=1, end=0.4) +
     ggtitle(paste0("Performance for OpenCL version, problem size of ", size, " (zoom)")) +
-    theme_bw() + scale_x_discrete(limits = positions) + ylim(0.0, 0.1)
+    theme_bw() + scale_x_discrete(limits=positions, labels=positions_labels) + ylim(0.0, 0.1)
     
     ggsave(filename=paste0("plots/", size, " (zoom)", ".png"), width=17, limitsize=F)
 }
