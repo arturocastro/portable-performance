@@ -32,7 +32,12 @@ datac$V2 = factor(datac$V2)
 
 for (n in 1 : nrow(datac))
 {
-	datac[n,4] <- max(data[(1 + 10 * (n - 1)) : (n * 10), 3])
+	problem.size <- datac[n, "V1"]
+    local.work.size <- datac[n, "V2"]
+  
+    maximum <- max(data[data$V1 == problem.size & data$V2 == local.work.size, "V3"])
+  
+    datac[datac$V1 == problem.size & datac$V2 == local.work.size, "V3"] <- maximum
 }
 
 datac$V1 <- factor(datac$V1, levels=unique(as.character(datac$V1)) )
@@ -55,7 +60,7 @@ print(ggplot(datac, aes(x=V2, y=V3, fill=as.factor(V1))) +
     ylab("Performance (1 / T)") +
     scale_fill_grey(name="Problem size", # Legend label, use darker colors
                    breaks=c("31", "63", "127", "255", "511", "1023"),
-                   labels=c("31", "63", "127", "255", "511", "1023"), start=1, end=0.4) +
+                   labels=c("31", "63", "127", "255", "511", "1023"), start=1, end=0.2) +
     ggtitle(paste0("Performance for OpenCL version on ", plot_name)) +
     theme_bw() + scale_x_discrete(limits=positions, labels=positions_labels) + ylim(0.0, y_upper_bound))
     

@@ -8,7 +8,14 @@ mean_for_max <- function(data, datac)
         #print("a")
         #print(datac[n, 4])
         #print(max(data[(1 + 10 * (n - 1)) : (n * 10), 4]))
-        datac[n, 4] <- max(data[(1 + 10 * (n - 1)) : (n * 10), 4])
+        #datac[n, 4] <- max(data[(1 + 10 * (n - 1)) : (n * 10), 4])
+        
+        problem.size <- datac[n, "size"]
+        local.work.size <- datac[n, "config"]
+      
+        maximum <- max(data[data$V1 == problem.size & data$V2 == local.work.size, "time"])
+      
+        datac[datac$V1 == problem.size & datac$V2 == local.work.size, "time"] <- maximum
     }
 }
 
@@ -26,7 +33,8 @@ get_positions_labels <- function(positions)
 }
 
 positions_path <- commandArgs(T)[1]
-y_upper_bound <- commandArgs(T)[2]
+plot_name <- commandArgs(T)[2]
+y_upper_bound <- commandArgs(T)[3]
 
 raw_cols <- c("size", "config", "time")
 sizes <- c("31", "63", "127", "255", "511", "1023")
@@ -79,7 +87,7 @@ ggplot(d, aes(x=config, y=performance, fill=as.factor(dev))) +
                    breaks=c("cpu", "gpu", "phi"),
                    labels=c("Sandy Bridge CPU", "Nvidia GPU", "Xeon Phi"), start=1, end=0.4) +
     ggtitle(paste0("Performance for OpenCL version, problem size of ", size)) +
-    theme_bw() + scale_x_discrete(limits=positions, labels=positions_labels) + ylim(0.0, y_upper_bound)
+    theme_bw() + scale_x_discrete(limits=positions, labels=positions_labels) + ylim(0.0, 5.0)
     
     ggsave(filename=paste0("plots/", size, ".png"), width=17, limitsize=F)
 
