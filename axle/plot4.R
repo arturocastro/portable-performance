@@ -117,14 +117,16 @@ for (size in sizes)
   maxgpu <- max(d[d$dev == "gpu", "performance"], na.rm=T)
   maxcpu <- max(d[d$dev == "cpu", "performance"], na.rm=T)
   maxphi <- max(d[d$dev == "phi", "performance"], na.rm=T)
+  
+  d$choose = factor(d$performance == maxgpu | d$performance == maxcpu | d$performance == maxphi)
     
-  yrange <- maxgpu + 0.5
-  yrangez <- maxcpu + 0.1
+  yrange <- maxgpu + (maxgpu * 0.05)
+  yrangez <- max((maxcpu + (maxcpu * 0.05)), (maxphi + (maxphi * 0.05)))
   
   ggplot(d, aes(x=config, y=performance, fill=as.factor(dev))) + 
     geom_bar(position=position_dodge(), stat="identity",
              colour="black", # Use black outlines,
-             size=.3) +      # Thinner lines
+             aes(x=config, fill=as.factor(dev), size=choose)) +      # Thinner lines
     geom_errorbar(aes(ymin=performance-ci, ymax=performance),
                   size=.3,    # Thinner lines
                   width=.2,
@@ -133,10 +135,12 @@ for (size in sizes)
     ylab("Performance (1 / T)") +
     scale_fill_grey(name="Device", # Legend label, use darker colors
                     breaks=c("cpu", "gpu", "phi"),
-                    labels=c("Sandy Bridge CPU", "Nvidia GPU", "Xeon Phi"), start=1, end=0.4) +
+                    labels=c("Sandy Bridge CPU", "Nvidia GPU", "Xeon Phi"), start=1, end=0.5) +
     ggtitle(paste0("Performance for OpenCL version, problem size of ", size)) +
     theme_bw() + scale_x_discrete(limits=positions, labels=positions_labels) + ylim(0.0, yrange) +
-    geom_hline(yintercept=c(maxgpu, maxcpu, maxphi))
+    geom_hline(yintercept=c(maxgpu, maxcpu, maxphi)) +
+    scale_size_manual(values=c(0.5, 1), guide = "none")
+    #facet_wrap(~ cut)
   
   
   ggsave(filename=paste0("plots/", size, ".png"), width=17, limitsize=F)# +
@@ -145,7 +149,7 @@ for (size in sizes)
   ggplot(d, aes(x=config, y=performance, fill=as.factor(dev))) + 
     geom_bar(position=position_dodge(), stat="identity",
              colour="black", # Use black outlines,
-             size=.3) +      # Thinner lines
+             aes(x=config, fill=as.factor(dev), size=choose)) +      # Thinner lines
     geom_errorbar(aes(ymin=performance-ci, ymax=performance),
                   size=.3,    # Thinner lines
                   width=.2,
@@ -154,10 +158,11 @@ for (size in sizes)
     ylab("Performance (1 / T)") +
     scale_fill_grey(name="Device", # Legend label, use darker colors
                     breaks=c("cpu", "gpu", "phi"),
-                    labels=c("Sandy Bridge CPU", "Nvidia GPU", "Xeon Phi"), start=1, end=0.4) +
+                    labels=c("Sandy Bridge CPU", "Nvidia GPU", "Xeon Phi"), start=1, end=0.5) +
     ggtitle(paste0("Performance for OpenCL version, problem size of ", size, " (zoom)")) +
-    theme_bw() + scale_x_discrete(limits=positions, labels=positions_labels) + ylim(0.0, yrange) +
-    geom_hline(yintercept=c(maxgpu, maxcpu, maxphi))
+    theme_bw() + scale_x_discrete(limits=positions, labels=positions_labels) + ylim(0.0, yrangez) +
+    geom_hline(yintercept=c(maxgpu, maxcpu, maxphi)) +
+    scale_size_manual(values=c(0.5, 1), guide = "none")
   
   ggsave(filename=paste0("plots/", size, " (zoom)", ".png"), width=17, limitsize=F)
 }
