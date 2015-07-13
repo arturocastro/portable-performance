@@ -40,3 +40,10 @@ clinfo
 shallow
 shallow_base
 shallow_opm
+
+# R stuff
+*.RData
+*.RHistory
+
+# Zip
+*.zip
