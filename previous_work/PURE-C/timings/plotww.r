@@ -30,9 +30,9 @@ print(ggplot(datac, aes(x=V2, y=V3, fill=V1)) +
                   position=position_dodge(.9)) +
     xlab("Problem size") +
     ylab("Performance (1 / T)") +
-    scale_fill_hue(name="Machine/Device", # Legend label, use darker colors
+    scale_fill_grey(name="Machine/Device", # Legend label, use darker colors
                    breaks=c("axleman", "mcore48"),
-                   labels=c("axleman/Sandy Bridge CPU", "mcore48/Opteron CPU")) +
+                   labels=c("axleman/Sandy Bridge CPU", "mcore48/Opteron CPU"), start=0.8, end=0.4) +
     ggtitle("Performance for serial C version") +
     scale_y_continuous(breaks=0:20*4) +
     theme_bw())
