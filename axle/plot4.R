@@ -68,6 +68,25 @@ get_positions_labels <- function(positions)
   return(labels)
 }
 
+get_positions_labels_current <- function(generic.labels, problem.size)
+{
+  current.labels <- generic.labels
+  
+  for (i in 1:length(current.labels))
+  {
+    label <- current.labels[i]
+
+    local.work.size <- strsplit(label, "\n")[[1]]
+    local.work.size <- as.integer(local.work.size[2])
+
+    num.work.groups <- (problem.size * problem.size) / local.work.size
+
+    current.labels[i] <- paste0(label, "\n", num.work.groups)
+  }
+
+  return(current.labels)
+}
+
 positions_path <- "positions2.txt"
 
 raw_cols <- c("size", "config", "time")
@@ -122,28 +141,31 @@ for (size in sizes)
     
   yrange <- maxgpu + (maxgpu * 0.05)
   yrangez <- max((maxcpu + (maxcpu * 0.05)), (maxphi + (maxphi * 0.05)))
+
+  positions_labels2 <- get_positions_labels_current(positions_lab	els, as.integer(size) + 1)
   
-  ggplot(d, aes(x=config, y=performance, fill=as.factor(dev))) + 
+  ggplot(d, aes(x=config, y=performance)) + 
     geom_bar(position=position_dodge(), stat="identity",
              colour="black", # Use black outlines,
-             aes(x=config, fill=as.factor(dev), size=choose)) +      # Thinner lines
+             fill="#EEEEEE",
+             aes(x=config, size=choose)) +      # Thinner lines
     geom_errorbar(aes(ymin=performance-ci, ymax=performance),
                   size=.3,    # Thinner lines
                   width=.2,
                   position=position_dodge(.9)) +
-    xlab("Local work size") +
+    xlab("Local work size configuration\nTotal local work size\n# of work groups created") +
     ylab("Performance (1 / T)") +
-    scale_fill_grey(name="Device", # Legend label, use darker colors
-                    breaks=c("cpu", "gpu", "phi"),
-                    labels=c("Sandy Bridge CPU", "Nvidia GPU", "Xeon Phi"), start=1, end=0.5) +
+    #scale_fill_grey(name="Device", # Legend label, use darker colors
+    #                breaks=c("cpu", "gpu", "phi"),
+    #labels=c("Sandy Bridge CPU", "Nvidia GPU", "Xeon Phi"), start=1, end=0.5) +
     ggtitle(paste0("Performance for OpenCL version, problem size of ", size)) +
-    theme_bw() + scale_x_discrete(limits=positions, labels=positions_labels) + ylim(0.0, yrange) +
-    geom_hline(yintercept=c(maxgpu, maxcpu, maxphi)) +
-    scale_size_manual(values=c(0.5, 1), guide = "none")
-    #facet_wrap(~ cut)
+    theme_bw() + scale_x_discrete(limits=positions, labels=positions_labels2) + #ylim(0.0, yrange) +
+    #geom_hline(yintercept=c(maxgpu, maxcpu, maxphi)) +
+    scale_size_manual(values=c(0.5, 1), guide = "none") +
+    facet_grid(dev ~ ., scale = "free")
   
   
-  ggsave(filename=paste0("plots/", size, ".png"), width=17, limitsize=F)# +
+  ggsave(filename=paste0("plots/bbbb", size, ".png"), width = 11, height = 8 , limitsize=F)# +
   #geom_hline(yintercept=)
   
   ggplot(d, aes(x=config, y=performance, fill=as.factor(dev))) + 
@@ -160,11 +182,11 @@ for (size in sizes)
                     breaks=c("cpu", "gpu", "phi"),
                     labels=c("Sandy Bridge CPU", "Nvidia GPU", "Xeon Phi"), start=1, end=0.5) +
     ggtitle(paste0("Performance for OpenCL version, problem size of ", size, " (zoom)")) +
-    theme_bw() + scale_x_discrete(limits=positions, labels=positions_labels) + ylim(0.0, yrangez) +
+    theme_bw() + scale_x_discrete(limits=positions, labels=positions_labels2) + ylim(0.0, yrangez) +
     geom_hline(yintercept=c(maxgpu, maxcpu, maxphi)) +
     scale_size_manual(values=c(0.5, 1), guide = "none")
   
-  ggsave(filename=paste0("plots/", size, " (zoom)", ".png"), width=17, limitsize=F)
+  #ggsave(filename=paste0("plots/aaaa", size, " (zoom)", ".png"), width=17, limitsize=F)
 }
 
 
